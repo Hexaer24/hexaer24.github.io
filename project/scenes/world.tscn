@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
-[ext_resource type="PackedScene" uid="uid://ducscb78s6yg4" path="res://assets/world.glb" id="2_v88ik"]
+[ext_resource type="PackedScene" uid="uid://c34k72bixfcor" path="res://assets/world.glb" id="2_v88ik"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d4cef"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p1xyb"]
 
 [node name="world" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
 [node name="player" parent="." instance=ExtResource("1_5wtif")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
