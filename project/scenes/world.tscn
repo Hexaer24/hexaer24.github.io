@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=5 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
-[ext_resource type="PackedScene" uid="uid://b400g1k5ycjn1" path="res://assets/world.glb" id="2_102cb"]
+[ext_resource type="PackedScene" uid="uid://ducscb78s6yg4" path="res://assets/world.glb" id="2_ldt6b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d4cef"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p1xyb"]
 
 [node name="world" type="Node3D"]
 
@@ -10,3 +14,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="world2" parent="." instance=ExtResource("2_102cb")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.562029, 0, -0.513874)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("BoxMesh_p1xyb")
+
+[node name="world" parent="." instance=ExtResource("2_ldt6b")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
