@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=6 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
 [ext_resource type="PackedScene" uid="uid://c34k72bixfcor" path="res://assets/world.glb" id="2_v88ik"]
+[ext_resource type="PackedScene" uid="uid://dvmumni0pg0pt" path="res://scenes/interactable.tscn" id="3_xvkwn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d4cef"]
 
@@ -24,7 +25,8 @@ mesh = SubResource("BoxMesh_p1xyb")
 [node name="world" parent="." instance=ExtResource("2_v88ik")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 8)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 26, 46)
+[node name="information" parent="." instance=ExtResource("3_xvkwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 8)
 
-[editable path="world"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 5, 14)
