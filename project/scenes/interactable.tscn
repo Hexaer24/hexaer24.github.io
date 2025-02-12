@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvmumni0pg0pt"]
+
+[ext_resource type="Script" path="res://scripts/interact.gd" id="1_suq6i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tp5ty"]
+
+[node name="information" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tp5ty")
+
+[node name="InteractZone" type="Area3D" parent="."]
+script = ExtResource("1_suq6i")
+message = "res://scenes/"

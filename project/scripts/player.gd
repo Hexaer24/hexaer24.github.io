@@ -17,3 +17,9 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	print("Area entered")
+	if (area is InteractZone):
+		area.interact()
