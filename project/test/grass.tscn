@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch0hlbv3rygnj"]
+
+[ext_resource type="Material" uid="uid://bk6o7eqxcw3sf" path="res://test/grass.tres" id="1_qeatx"]
+[ext_resource type="Script" path="res://test/grass.gd" id="2_g2db5"]
+
+[node name="Grass" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+size = Vector3(1, 0.25, 1)
+material = ExtResource("1_qeatx")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+script = ExtResource("2_g2db5")

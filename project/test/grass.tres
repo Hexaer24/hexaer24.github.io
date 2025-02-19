@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bk6o7eqxcw3sf"]
+
+[ext_resource type="Shader" path="res://test/wind.gdshader" id="1_4v7io"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4v7io")
