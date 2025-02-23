@@ -1,5 +1,4 @@
-extends Area3D
-class_name InteractZone
+class_name InteractZone extends Area3D
 @export_file("*.tscn") var message:String
 var info
 
