@@ -33,7 +33,7 @@ func loadResize():
 	resize_handle.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
 	resize_handle.connect("gui_input", _on_resize_handle_input)
 	add_child(resize_handle)
-	
+
 func loadStyle():
 	theme= load("res://resources/notepadGUI.tres")#Remove when specialized
 	var stylebox =StyleBoxFlat.new()
