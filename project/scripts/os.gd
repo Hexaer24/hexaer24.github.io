@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 func _on_texture_button_button_down() -> void:
 	var window =FakeWindow.new()
-	add_child(window)
+	$TextureRect.add_child(window)

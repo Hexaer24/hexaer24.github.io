@@ -11,10 +11,12 @@ anchors_preset = 0
 script = ExtResource("1_uwnhl")
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_left = 63.0
 offset_top = 63.0
 offset_right = 110.0

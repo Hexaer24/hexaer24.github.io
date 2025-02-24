@@ -8,11 +8,15 @@ var drag_start_pos := Vector2.ZERO
 var drag_start_size := Vector2.ZERO
 var min_size := Vector2(100, 100)  # Minimum window size
 var max_size := Vector2(1000,600)
-
-
+var is_maximized = false
+var style =load("res://assets/notepadGUI.png")
+var prev_size = Vector2.ZERO
+var prev_position
 
 func _ready() -> void:
 	size =Vector2(400,200)
+	position = Vector2(250,250)
+	prev_position=position
 	loadTitle()
 	loadStyle()
 	loadResize()
@@ -41,7 +45,6 @@ func loadStyle():
 	add_theme_stylebox_override("panel", stylebox)
 	
 	var titleBarStyle= StyleBoxTexture.new()
-	titleBarStyle.texture = load("res://assets/notepadGUI.png")
 	titleBar.add_theme_stylebox_override("panel", theme.get_stylebox("panel", "PanelContainer"))
 	
 
@@ -49,23 +52,33 @@ func loadTitle():
 	titleBar=PanelContainer.new()
 	titleBar.size_flags_horizontal =Control.SIZE_EXPAND_FILL
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	titleBar.custom_minimum_size = Vector2(0, 20)
-	loadClose()
+	titleBar.custom_minimum_size.y =  20
+	titleBar.size_flags_stretch_ratio=0
+	loadButtons()
 	
 	
-func loadClose():
-	var close = Button.new()
-	var closeTexture: AtlasTexture =AtlasTexture.new()
-	var fullscreen
+func loadButtons():
+	var button_container= HBoxContainer.new()
+	button_container.custom_minimum_size.y=20
+	button_container.size_flags_horizontal=Control.SIZE_SHRINK_END
 	
-	close.anchor_left=1
-	close.anchor_right=1
+	var close:Button = Button.new()
 	close.custom_minimum_size=Vector2(20,20)
-	close.size_flags_horizontal =Control.SIZE_SHRINK_END
-	closeTexture = load("res://assets/notepadGUI.png")
+	
+	var closeTexture: AtlasTexture =AtlasTexture.new()
+	closeTexture.atlas= style
 	closeTexture.region = Rect2(550,90,90,90)
-	close.add_theme_stylebox_override("panel",theme.get_stylebox("panel","PanelContainer"))
-	titleBar.add_child(close)
+	close.icon=closeTexture
+	
+	var maximize_button:Button = Button.new()
+	maximize_button.custom_minimum_size = Vector2(20, 20)
+	maximize_button.connect("button_down", _on_maximize_pressed)
+	
+	close.connect("button_down", _on_close_input)
+	
+	button_container.add_child(maximize_button)
+	button_container.add_child(close)
+	titleBar.add_child(button_container)
 	
 func _on_titlebar_gui_input(event):
 	if event is InputEventMouseButton:
@@ -86,3 +99,17 @@ func _on_resize_handle_input(event):
 		var delta = event.global_position - drag_start_pos
 		var new_size = drag_start_size + delta
 		size = new_size.clamp(min_size, max_size)  # Ensure min/max limits
+
+func _on_close_input():
+	queue_free()
+
+func _on_maximize_pressed():
+	if is_maximized:
+		size = prev_size
+		position = prev_position
+	else:
+		prev_size = size
+		prev_position = position
+		size = get_parent().size
+		position = Vector2(0, 0)
+	is_maximized = !is_maximized  # Toggle maximize state
