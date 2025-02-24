@@ -1,18 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ba6laehvce71v"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ba6laehvce71v"]
 
 [ext_resource type="Texture2D" uid="uid://c0l852vkfy7j4" path="res://assets/gui.png" id="1_8nuc1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lh7pr"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ppq7"]
 
@@ -60,7 +48,7 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = null
-Button/styles/disabled = SubResource("StyleBoxFlat_lh7pr")
+Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxEmpty_6ppq7")
 Button/styles/hover = SubResource("StyleBoxTexture_7ggqh")
 Button/styles/normal = SubResource("StyleBoxTexture_8j3hv")

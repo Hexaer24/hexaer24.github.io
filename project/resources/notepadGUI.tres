@@ -1134,17 +1134,8 @@ cache/0/14/0/glyphs/49/size = Vector2(11, 12)
 cache/0/14/0/glyphs/49/uv_rect = Rect2(225, 13, 11, 12)
 cache/0/14/0/glyphs/49/texture_idx = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3qe"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vd8e"]
+texture = ExtResource("1_fs456")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jhjv"]
 content_margin_left = 4.0
@@ -1241,7 +1232,7 @@ TabBar/icons/decrement_highlight = null
 TabBar/icons/drop_mark = null
 TabBar/icons/increment = null
 TabBar/icons/increment_highlight = null
-TabBar/styles/button_highlight = SubResource("StyleBoxFlat_tk3qe")
+TabBar/styles/button_highlight = SubResource("StyleBoxTexture_3vd8e")
 TabBar/styles/button_pressed = SubResource("StyleBoxFlat_1jhjv")
 TabBar/styles/tab_disabled = SubResource("StyleBoxFlat_e1rps")
 TabBar/styles/tab_focus = SubResource("StyleBoxFlat_1ldju")

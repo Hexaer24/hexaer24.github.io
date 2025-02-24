@@ -1,6 +1,5 @@
 class_name FakeWindow extends PanelContainer
 var titleBar
-var closeButton
 var dragging :=false
 var drag_offset := Vector2.ZERO
 var resizing := false
@@ -11,6 +10,7 @@ var min_size := Vector2(100, 100)  # Minimum window size
 var max_size := Vector2(1000,600)
 
 
+
 func _ready() -> void:
 	size =Vector2(400,200)
 	loadTitle()
@@ -19,7 +19,7 @@ func _ready() -> void:
 	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	add_child(titleBar)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 func loadResize():
 	var resize_handle = Control.new()
@@ -35,10 +35,11 @@ func loadResize():
 	add_child(resize_handle)
 	
 func loadStyle():
+	theme= load("res://resources/notepadGUI.tres")#Remove when specialized
 	var stylebox =StyleBoxFlat.new()
 	stylebox.bg_color = Color(0.2, 0.2, 0.2, 1)
 	add_theme_stylebox_override("panel", stylebox)
-	theme= load("res://resources/notepadGUI.tres")
+	
 	var titleBarStyle= StyleBoxTexture.new()
 	titleBarStyle.texture = load("res://assets/notepadGUI.png")
 	titleBar.add_theme_stylebox_override("panel", theme.get_stylebox("panel", "PanelContainer"))
@@ -49,10 +50,22 @@ func loadTitle():
 	titleBar.size_flags_horizontal =Control.SIZE_EXPAND_FILL
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	titleBar.custom_minimum_size = Vector2(0, 20)
+	loadClose()
 	
 	
 func loadClose():
-	closeButton=TextureButton.new()
+	var close = Button.new()
+	var closeTexture: AtlasTexture =AtlasTexture.new()
+	var fullscreen
+	
+	close.anchor_left=1
+	close.anchor_right=1
+	close.custom_minimum_size=Vector2(20,20)
+	close.size_flags_horizontal =Control.SIZE_SHRINK_END
+	closeTexture = load("res://assets/notepadGUI.png")
+	closeTexture.region = Rect2(550,90,90,90)
+	close.add_theme_stylebox_override("panel",theme.get_stylebox("panel","PanelContainer"))
+	titleBar.add_child(close)
 	
 func _on_titlebar_gui_input(event):
 	if event is InputEventMouseButton:
