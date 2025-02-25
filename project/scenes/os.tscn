@@ -3,19 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://chjk802buotkg" path="res://assets/notepad.png" id="1_51gbg"]
 [ext_resource type="Script" path="res://scripts/os.gd" id="1_uwnhl"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uwnhl")
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 63.0
@@ -23,4 +21,4 @@ offset_right = 110.0
 offset_bottom = 113.0
 texture_normal = ExtResource("1_51gbg")
 
-[connection signal="button_down" from="Control/TextureButton" to="Control" method="_on_texture_button_button_down"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

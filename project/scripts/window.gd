@@ -15,13 +15,13 @@ var prev_position
 var button_size = Vector2(20,20)
 
 func _ready() -> void:
+	z_index=1
 	size =Vector2(400,200)
 	position = Vector2(250,250)
 	prev_position=position
 	loadTitle()
 	loadStyle()
 	loadResize()
-	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	add_child(titleBar)
 	
 func _process(_delta: float) -> void:
@@ -53,6 +53,7 @@ func loadTitle():
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	titleBar.custom_minimum_size.y =  20
 	titleBar.size_flags_stretch_ratio=0
+	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	loadButtons()
 	
 func createButton(region)->Button:
@@ -61,6 +62,7 @@ func createButton(region)->Button:
 	
 	var texture_container: TextureRect=TextureRect.new()
 	var button_texture: AtlasTexture =AtlasTexture.new()
+	button.focus_mode = Control.FOCUS_NONE
 	button_texture.atlas= style
 	button_texture.region = region
 	texture_container.texture=button_texture
@@ -71,6 +73,7 @@ func createButton(region)->Button:
 	
 func loadButtons():
 	var button_container= HBoxContainer.new()
+	button_container.add_theme_constant_override("separation", 0)
 	button_container.add_spacer(false)
 	button_container.custom_minimum_size.y=button_size.y
 	button_container.size_flags_horizontal=Control.SIZE_SHRINK_END
