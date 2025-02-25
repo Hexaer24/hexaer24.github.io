@@ -12,6 +12,7 @@ var is_maximized = false
 var style =load("res://assets/notepadGUI.png")
 var prev_size = Vector2.ZERO
 var prev_position
+var button_size = Vector2(20,20)
 
 func _ready() -> void:
 	size =Vector2(400,200)
@@ -27,7 +28,7 @@ func _process(_delta: float) -> void:
 	pass
 func loadResize():
 	var resize_handle = Control.new()
-	resize_handle.custom_minimum_size = Vector2(20, 20)  # Resize area size
+	resize_handle.custom_minimum_size = button_size  # Resize area size
 	resize_handle.anchor_left =1.0
 	resize_handle.anchor_right =1.0
 	resize_handle.anchor_top =1.0
@@ -56,22 +57,30 @@ func loadTitle():
 	titleBar.size_flags_stretch_ratio=0
 	loadButtons()
 	
+func createButton(region)->Button:
+	var button:Button = Button.new()
+	button.custom_minimum_size=button_size
+	
+	var texture_container: TextureRect=TextureRect.new()
+	var button_texture: AtlasTexture =AtlasTexture.new()
+	button_texture.atlas= style
+	button_texture.region = region
+	texture_container.texture=button_texture
+	texture_container.custom_minimum_size=button_size
+	texture_container.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	button.button_pressed
+	button.add_child(texture_container)
+	return button
 	
 func loadButtons():
 	var button_container= HBoxContainer.new()
-	button_container.custom_minimum_size.y=20
+	button_container.add_spacer(false)
+	button_container.custom_minimum_size.y=button_size.y
 	button_container.size_flags_horizontal=Control.SIZE_SHRINK_END
 	
-	var close:Button = Button.new()
-	close.custom_minimum_size=Vector2(20,20)
+	var close = createButton(Rect2(550,90,90,90))
 	
-	var closeTexture: AtlasTexture =AtlasTexture.new()
-	closeTexture.atlas= style
-	closeTexture.region = Rect2(550,90,90,90)
-	close.icon=closeTexture
-	
-	var maximize_button:Button = Button.new()
-	maximize_button.custom_minimum_size = Vector2(20, 20)
+	var maximize_button:Button = createButton(Rect2(470,90,80,90))
 	maximize_button.connect("button_down", _on_maximize_pressed)
 	
 	close.connect("button_down", _on_close_input)
@@ -104,12 +113,14 @@ func _on_close_input():
 	queue_free()
 
 func _on_maximize_pressed():
+	var tween= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	if is_maximized:
-		size = prev_size
-		position = prev_position
+		tween.parallel().tween_property(self,"size",prev_size,0.2)
+		tween.parallel().tween_property(self,"position",prev_position,0.2)
 	else:
 		prev_size = size
 		prev_position = position
-		size = get_parent().size
-		position = Vector2(0, 0)
+		tween.parallel().tween_property(self,"size",get_parent().size,0.2)
+		tween.parallel().tween_property(self,"position",Vector2(0,0),0.2)
 	is_maximized = !is_maximized  # Toggle maximize state
