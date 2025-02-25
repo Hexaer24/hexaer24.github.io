@@ -44,8 +44,6 @@ func loadStyle():
 	var stylebox =StyleBoxFlat.new()
 	stylebox.bg_color = Color(0.2, 0.2, 0.2, 1)
 	add_theme_stylebox_override("panel", stylebox)
-	
-	var titleBarStyle= StyleBoxTexture.new()
 	titleBar.add_theme_stylebox_override("panel", theme.get_stylebox("panel", "PanelContainer"))
 	
 
@@ -68,7 +66,6 @@ func createButton(region)->Button:
 	texture_container.texture=button_texture
 	texture_container.custom_minimum_size=button_size
 	texture_container.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-	button.button_pressed
 	button.add_child(texture_container)
 	return button
 	
@@ -79,11 +76,11 @@ func loadButtons():
 	button_container.size_flags_horizontal=Control.SIZE_SHRINK_END
 	
 	var close = createButton(Rect2(550,90,90,90))
+	close.connect("button_down", _on_close_input)
 	
 	var maximize_button:Button = createButton(Rect2(470,90,80,90))
 	maximize_button.connect("button_down", _on_maximize_pressed)
 	
-	close.connect("button_down", _on_close_input)
 	
 	button_container.add_child(maximize_button)
 	button_container.add_child(close)
