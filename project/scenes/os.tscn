@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr0yfn4t04wnl"]
 
 [ext_resource type="Texture2D" uid="uid://chjk802buotkg" path="res://assets/notepad.png" id="1_51gbg"]
-[ext_resource type="Script" path="res://scripts/os.gd" id="1_uwnhl"]
+[ext_resource type="Script" path="res://scripts/desktop.gd" id="1_uwnhl"]
 
-[node name="Control" type="Control"]
+[node name="Desktop" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uwnhl")

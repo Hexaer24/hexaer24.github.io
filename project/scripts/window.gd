@@ -55,6 +55,7 @@ func loadTitle():
 	titleBar.size_flags_stretch_ratio=0
 	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	loadButtons()
+	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS
 	
 func createButton(region)->Button:
 	var button:Button = Button.new()
@@ -74,7 +75,6 @@ func createButton(region)->Button:
 func loadButtons():
 	var button_container= HBoxContainer.new()
 	button_container.add_theme_constant_override("separation", 0)
-	button_container.add_spacer(false)
 	button_container.custom_minimum_size.y=button_size.y
 	button_container.size_flags_horizontal=Control.SIZE_SHRINK_END
 	
