@@ -7,7 +7,7 @@ const SPEED = 5.0
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -19,12 +19,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if (area is InteractZone):
-		area.interact()
-		print("interacted")
 
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if (area is InteractZone):
-		area.remove()
+func move_cam_to(there:Vector3, rot:Vector3):
+	$Camera3D.position=there
+	$Camera3D.rotation=rot
