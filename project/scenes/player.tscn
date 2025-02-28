@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://kog4sf7ephm"]
+[gd_scene load_steps=5 format=3 uid="uid://kog4sf7ephm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lkl71"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="2_vaatb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k51r0"]
 
@@ -14,6 +15,7 @@ mesh = SubResource("CapsuleMesh_k51r0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
+script = ExtResource("2_vaatb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wd087")
