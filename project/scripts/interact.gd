@@ -1,9 +1,14 @@
 class_name InteractZone extends Area3D
 @export_file("*.tscn") var message:String
+
 var info
-var displaying: bool= false
+var global_camera:Node
+var player_camera
 
 func _ready() -> void:
+	global_camera=get_node("../CameraRig")
+	player_camera=get_node("../player/Camera3D")
+	
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 	var hitbox= CollisionShape3D.new()
@@ -11,21 +16,22 @@ func _ready() -> void:
 	add_child(hitbox)
 
 func interact():
-	info= load(message).instantiate()
-	print(info)
-	add_child(info)
-	displaying=true
+	global_camera.move_to(Vector3(-1.4,1.1,-1.4), Vector3(0,45,0))
+	#info= load(message).instantiate()
+	#add_child(info)
 
 func remove():
-	if (displaying):
+	if info:
 		info.queue_free()
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
+		global_camera.get_child(0).current=true
 		interact()
 		print("interacted")
 
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
+		player_camera.current=true
 		remove()

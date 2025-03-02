@@ -1,24 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=5 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
-[ext_resource type="Shader" path="res://shaders/screen.gdshader" id="3_cjjed"]
-[ext_resource type="PackedScene" uid="uid://cr0yfn4t04wnl" path="res://scenes/os.tscn" id="3_ffos8"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="3_jfsct"]
-[ext_resource type="Script" path="res://scenes/screen.gd" id="3_pmotm"]
 [ext_resource type="PackedScene" uid="uid://c2ejtni2uukf0" path="res://assets/room.glb" id="3_uqvx5"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="4_0a2cn"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_gatvh"]
-viewport_path = NodePath("room/Cube_002/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwkxo"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_cjjed")
-shader_parameter/scale_factor = 5.0
-shader_parameter/texture_size = null
-shader_parameter/viewport_size = Vector2(1, 1)
-shader_parameter/viewport_texture = SubResource("ViewportTexture_gatvh")
+[ext_resource type="Script" path="res://scenes/camera.gd" id="4_0a2cn"]
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
@@ -227,19 +212,11 @@ bones/155/rotation = Quaternion(0.0875415, 0, 0, 0.996161)
 bones/157/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/157/scale = Vector3(1, 1, 1)
 
-[node name="Cube_002" parent="room" index="4"]
-material_override = SubResource("ShaderMaterial_cwkxo")
-script = ExtResource("3_pmotm")
-
-[node name="SubViewport" type="SubViewport" parent="room/Cube_002" index="0"]
-size = Vector2i(1152, 648)
-
-[node name="os" parent="room/Cube_002/SubViewport" instance=ExtResource("3_ffos8")]
-
 [node name="InteractZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 script = ExtResource("3_jfsct")
 message = "res://scenes/os.tscn"
+camera_controller = NodePath("../CameraRig")
 
 [node name="CameraRig" type="Marker3D" parent="."]
 script = ExtResource("4_0a2cn")
