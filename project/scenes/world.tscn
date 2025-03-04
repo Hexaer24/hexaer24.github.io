@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=11 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
 [ext_resource type="Shader" path="res://shaders/screen.gdshader" id="3_cjjed"]
@@ -19,6 +19,9 @@ shader_parameter/scale_factor = 5.0
 shader_parameter/texture_size = null
 shader_parameter/viewport_size = Vector2(1, 1)
 shader_parameter/viewport_texture = SubResource("ViewportTexture_gatvh")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cqeuc"]
+data = PackedVector3Array(1.4219, 0.3962, -0.4073, 2.4196, -0.1585, -0.4073, 1.4219, -0.1585, -0.4073, 1.4219, 0.3962, -0.4073, 2.4196, 0.3962, -0.4073, 2.4196, -0.1585, -0.4073)
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
@@ -235,6 +238,11 @@ script = ExtResource("3_pmotm")
 size = Vector2i(1152, 648)
 
 [node name="os" parent="room/Cube_002/SubViewport" instance=ExtResource("3_ffos8")]
+
+[node name="Area3D" type="StaticBody3D" parent="room/Cube_002" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/Cube_002/Area3D"]
+shape = SubResource("ConcavePolygonShape3D_cqeuc")
 
 [node name="InteractZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)

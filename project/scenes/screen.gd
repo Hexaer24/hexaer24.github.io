@@ -1,5 +1,6 @@
 extends MeshInstance3D
 
+@onready var viewport := $SubViewport
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +10,3 @@ func _ready():
 	$SubViewport.size=size2*1000
 	var shader_material = material_override
 	print($SubViewport/os/Desktop.size,$SubViewport.size)
-
-
-func _process(delta: float) -> void:
-	pass
