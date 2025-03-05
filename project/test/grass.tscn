@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch0hlbv3rygnj"]
 
 [ext_resource type="Material" uid="uid://bk6o7eqxcw3sf" path="res://test/grass.tres" id="1_qeatx"]
-[ext_resource type="Script" path="res://test/grass.gd" id="2_g2db5"]
+[ext_resource type="Script" uid="uid://bah3g485hgbp2" path="res://test/grass.gd" id="2_g2db5"]
 
 [node name="Grass" type="Node3D"]
 

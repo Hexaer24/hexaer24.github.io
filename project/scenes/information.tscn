@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgfbc0hmupk3a"]
 
-[ext_resource type="Script" path="res://scripts/information.gd" id="1_34eqs"]
+[ext_resource type="Script" uid="uid://bahxga2rprbpd" path="res://scripts/information.gd" id="1_34eqs"]
 [ext_resource type="Theme" uid="uid://ba6laehvce71v" path="res://resources/gui.tres" id="2_l6sm3"]
 
 [node name="Information" type="Control"]
