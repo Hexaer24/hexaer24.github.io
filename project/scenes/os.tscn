@@ -15,18 +15,10 @@ offset_bottom = 648.0
 
 [node name="TextureButton" type="TextureButton" parent="Desktop"]
 layout_mode = 0
-offset_left = 193.0
-offset_top = 455.0
-offset_right = 240.0
-offset_bottom = 505.0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 68.0
+offset_bottom = 73.0
 texture_normal = ExtResource("1_51gbg")
-
-[node name="ColorRect" type="ColorRect" parent="Desktop"]
-layout_mode = 0
-offset_left = 219.0
-offset_top = 86.0
-offset_right = 944.0
-offset_bottom = 476.0
-color = Color(0.427451, 0, 0, 1)
 
 [connection signal="button_down" from="Desktop/TextureButton" to="." method="_on_texture_button_button_down"]

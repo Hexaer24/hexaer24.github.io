@@ -13,6 +13,7 @@ var style =load("res://assets/notepadGUI.png")
 var prev_size = Vector2.ZERO
 var prev_position
 var button_size = Vector2(20,20)
+var viewport:NodePath="../../../"
 
 func _ready() -> void:
 	z_index=1
@@ -121,6 +122,7 @@ func _on_maximize_pressed():
 	else:
 		prev_size = size
 		prev_position = position
-		tween.parallel().tween_property(self,"size",get_parent().size,0.2)
+		print(get_node(viewport).size)
+		tween.parallel().tween_property(self,"size",Vector2(get_node(viewport).size),0.2)
 		tween.parallel().tween_property(self,"position",Vector2(0,0),0.2)
 	is_maximized = !is_maximized  # Toggle maximize state

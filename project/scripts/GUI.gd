@@ -1,8 +1,7 @@
 extends Node3D
-@onready var display = $MeshInstance3D
 @onready var viewport= $SubViewport
 @onready var area= $Area3D
-
+@onready var display=$MeshInstance3D
 var mesh_size:Vector2=Vector2()
 var mouse_entered = false
 var mouse_held = false
@@ -59,7 +58,7 @@ func handle_mouse(event):
 			event.relative =mouse_pos2D - last_mouse_pos_2D
 			
 		last_mouse_pos_2D=mouse_pos2D
-		viewport.push_input(event)
+	viewport.push_input(event)
 	
 func find_mouse(pos:Vector2):
 	var camera= get_viewport().get_camera_3d()
@@ -69,7 +68,7 @@ func find_mouse(pos:Vector2):
 	var rayparam= PhysicsRayQueryParameters3D.new()
 	rayparam.from=camera.project_ray_origin(pos)
 	
-	var dis =5
+	var dis =10
 	rayparam.to=rayparam.from+camera.project_ray_normal(pos)*dis
 	rayparam.collide_with_bodies=false
 	rayparam.collide_with_areas=true

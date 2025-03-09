@@ -16,7 +16,7 @@ func _ready() -> void:
 	add_child(hitbox)
 
 func interact():
-	global_camera.move_to(Vector3(-1.4,1.1,-1.4), Vector3(0,45,0))
+	global_camera.move_to(Vector3(-1.1,1.3,-1.1), Vector3(0,45,0))
 	#info= load(message).instantiate()
 	#add_child(info)
 
