@@ -14,8 +14,6 @@ var button_size = Vector2(20,20)
 var viewport:NodePath="../../../"
 
 func _ready() -> void:
-	style_path="res://assets/notepadGUI.png"
-	theme_path="res://resources/notepadGUI.tres"
 	theme=load(theme_path)
 	z_index=1
 	size =Vector2(400,200)
