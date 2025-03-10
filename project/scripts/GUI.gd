@@ -15,14 +15,8 @@ func _ready():
 	viewport.set_process_input(true)
 	
 func _unhandled_input(event: InputEvent) -> void:
-	viewport.push_input(event)
-	var is_mouse_event=false
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
-		is_mouse_event=true
-	if mouse_entered and (is_mouse_event or mouse_held):
 		handle_mouse(event)
-	elif not is_mouse_event:
-		viewport.push_input(event)
 
 func handle_mouse(event):
 	mesh_size=display.mesh.size
@@ -68,7 +62,7 @@ func find_mouse(pos:Vector2):
 	var rayparam= PhysicsRayQueryParameters3D.new()
 	rayparam.from=camera.project_ray_origin(pos)
 	
-	var dis =10
+	var dis =5
 	rayparam.to=rayparam.from+camera.project_ray_normal(pos)*dis
 	rayparam.collide_with_bodies=false
 	rayparam.collide_with_areas=true

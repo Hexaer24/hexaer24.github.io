@@ -1,27 +1,28 @@
 class_name FakeWindow extends PanelContainer
 var titleBar
-var dragging :=false
-var drag_offset := Vector2.ZERO
-var resizing := false
-var resize_direction := Vector2.ZERO
-var drag_start_pos := Vector2.ZERO
-var drag_start_size := Vector2.ZERO
+var dragging :=false; var drag_offset := Vector2.ZERO
+var resizing := false; var resize_direction := Vector2.ZERO
+var drag_start_pos := Vector2.ZERO; var drag_start_size := Vector2.ZERO
 var min_size := Vector2(100, 100)  # Minimum window size
 var max_size := Vector2(1000,600)
 var is_maximized = false
-var style =load("res://assets/notepadGUI.png")
+var style_path
+var theme_path
 var prev_size = Vector2.ZERO
 var prev_position
 var button_size = Vector2(20,20)
 var viewport:NodePath="../../../"
 
 func _ready() -> void:
+	style_path="res://assets/notepadGUI.png"
+	theme_path="res://resources/notepadGUI.tres"
+	theme=load(theme_path)
 	z_index=1
 	size =Vector2(400,200)
 	position = Vector2(250,250)
 	prev_position=position
 	loadTitle()
-	loadStyle()
+	loadContent()
 	loadResize()
 	add_child(titleBar)
 	
@@ -40,13 +41,12 @@ func loadResize():
 	resize_handle.connect("gui_input", _on_resize_handle_input)
 	add_child(resize_handle)
 
-func loadStyle():
-	theme= load("res://resources/notepadGUI.tres")#Remove when specialized
-	var stylebox =StyleBoxFlat.new()
-	stylebox.bg_color = Color(0.2, 0.2, 0.2, 1)
-	add_theme_stylebox_override("panel", stylebox)
-	titleBar.add_theme_stylebox_override("panel", theme.get_stylebox("panel", "PanelContainer"))
 	
+	
+func loadContent():         #Would be abstract
+	var content= ColorRect.new()
+	content.color=Color(0,0,0)
+	add_child(content)
 
 func loadTitle():
 	titleBar=PanelContainer.new()
@@ -65,7 +65,7 @@ func createButton(region)->Button:
 	var texture_container: TextureRect=TextureRect.new()
 	var button_texture: AtlasTexture =AtlasTexture.new()
 	button.focus_mode = Control.FOCUS_NONE
-	button_texture.atlas= style
+	button_texture.atlas=load(style_path)                #Fix this you goofball, should be able to use theme
 	button_texture.region = region
 	texture_container.texture=button_texture
 	texture_container.custom_minimum_size=button_size
@@ -122,7 +122,6 @@ func _on_maximize_pressed():
 	else:
 		prev_size = size
 		prev_position = position
-		print(get_node(viewport).size)
 		tween.parallel().tween_property(self,"size",Vector2(get_node(viewport).size),0.2)
 		tween.parallel().tween_property(self,"position",Vector2(0,0),0.2)
 	is_maximized = !is_maximized  # Toggle maximize state
