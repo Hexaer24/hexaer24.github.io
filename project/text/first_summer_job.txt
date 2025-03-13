@@ -1,0 +1,4 @@
+Hello this is [b]bold[/b]!
+Does this actually show?
+Multiple lines!
+BBCode [color=green]test[/color]
