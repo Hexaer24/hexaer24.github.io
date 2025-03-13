@@ -1,4 +1,1 @@
-Hello this is [b]bold[/b]!
-Does this actually show?
-Multiple lines!
-BBCode [color=green]test[/color]
+[center][font_size=24]My first payed summer job[/font_size][/center]
