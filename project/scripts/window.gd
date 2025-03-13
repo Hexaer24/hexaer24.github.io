@@ -61,7 +61,8 @@ func loadTitle():
 	loadButtons(titleBar)
 	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS
 	return titleBar
-	
+
+
 func createButton(region)->Button:
 	var button:Button = Button.new()
 	button.custom_minimum_size=button_size

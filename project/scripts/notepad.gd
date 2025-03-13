@@ -5,12 +5,23 @@ func _ready() -> void:
 	super._ready()
 
 func loadContent():
-	var content = RichTextLabel.new()
-	content.append_text(get_txt_content("res://text/first_summer_job.txt"))
-	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var content= PanelContainer.new()
+	content.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	content.custom_minimum_size = Vector2(100, 100) # Set a reasonable size
-	content.bbcode_enabled=true
+	var background=ColorRect.new()
+	background.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	background.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	background.color=Color(0.2,0.2,0.2)
+	background.custom_minimum_size = Vector2(100, 100)
+	background.z_index=0
+	var text_content = RichTextLabel.new()
+	text_content.append_text(get_txt_content("res://text/first_summer_job.txt"))
+	text_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	text_content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	text_content.custom_minimum_size = Vector2(100, 100) # Set a reasonable size
+	text_content.bbcode_enabled=true
+	content.add_child(background)
+	content.add_child(text_content)
 	return content
 
 func get_txt_content(filePath):

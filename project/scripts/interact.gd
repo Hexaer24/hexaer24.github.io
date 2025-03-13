@@ -17,8 +17,6 @@ func _ready() -> void:
 
 func interact():
 	global_camera.move_to(Vector3(-1.1,1.3,-1.1), Vector3(0,45,0))
-	#info= load(message).instantiate()
-	#add_child(info)
 
 func remove():
 	if info:
