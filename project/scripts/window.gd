@@ -2,15 +2,16 @@ class_name FakeWindow extends PanelContainer
 var dragging :=false; var drag_offset := Vector2.ZERO
 var resizing := false; var resize_direction := Vector2.ZERO
 var drag_start_pos := Vector2.ZERO; var drag_start_size := Vector2.ZERO
-var min_size := Vector2(100, 100)  # Minimum window size
-var max_size := Vector2(1000,600)
+const min_size := Vector2(100, 100)  # Minimum window size
+const max_size := Vector2(1000,600)
 var is_maximized = false
 var style_path
 var theme_path
+var app_name
 var prev_size = Vector2.ZERO
 var prev_position
-var button_size = Vector2(20,20)
-var viewport:NodePath="../../../"
+const button_size = Vector2(20,20)
+const viewport:NodePath="../../../"
 
 func _ready() -> void:
 	z_index=1
@@ -59,10 +60,7 @@ func loadContent():         #Would be abstract
 
 func loadTitle():
 	var titleBar=PanelContainer.new()
-	var title_name=RichTextLabel.new()
-	title_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	title_name.append_text("[font_size=14]Notepad[/font_size]")
-	titleBar.add_child(title_name)
+	titleBar.add_child(loadTitleName())
 	titleBar.size_flags_horizontal =Control.SIZE_EXPAND_FILL
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	titleBar.custom_minimum_size.y =  20
@@ -72,6 +70,11 @@ func loadTitle():
 	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS
 	return titleBar
 
+func loadTitleName():
+	var title_name=RichTextLabel.new()
+	title_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	title_name.append_text("[font_size=14]"+app_name+"[/font_size]")
+	return title_name
 
 func createButton(region)->Button:
 	var button:Button = Button.new()
