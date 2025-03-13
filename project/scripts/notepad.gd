@@ -4,10 +4,9 @@ func _ready() -> void:
 	theme_path="res://resources/notepadGUI.tres"
 	super._ready()
 
+
 func loadContent():
-	var content= PanelContainer.new()
-	content.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var content = baseContent()
 	var background=ColorRect.new()
 	background.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	background.size_flags_vertical = Control.SIZE_EXPAND_FILL

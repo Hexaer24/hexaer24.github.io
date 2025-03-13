@@ -26,6 +26,12 @@ func loadSeparation():
 	slice.add_theme_constant_override("separation",0)
 	return slice
 
+func baseContent():
+	var content= PanelContainer.new()
+	content.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	return content
+
 func createWindow(): #Order is still important now
 	var slice = loadSeparation()
 	add_child(slice)
@@ -53,6 +59,10 @@ func loadContent():         #Would be abstract
 
 func loadTitle():
 	var titleBar=PanelContainer.new()
+	var title_name=RichTextLabel.new()
+	title_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	title_name.append_text("[font_size=14]Notepad[/font_size]")
+	titleBar.add_child(title_name)
 	titleBar.size_flags_horizontal =Control.SIZE_EXPAND_FILL
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	titleBar.custom_minimum_size.y =  20
