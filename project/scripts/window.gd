@@ -5,8 +5,7 @@ var drag_start_pos := Vector2.ZERO; var drag_start_size := Vector2.ZERO
 var min_size := Vector2(100, 100)  # Minimum window size
 var max_size := Vector2(1000,600)
 var is_maximized = false
-var style_path
-var theme_path
+var style_path; var theme_path; var app_name
 var prev_size = Vector2.ZERO
 var prev_position
 var button_size = Vector2(20,20)
@@ -20,9 +19,8 @@ func _ready() -> void:
 	createWindow()
 
 func loadSeparation():
-	var slice = BoxContainer.new()
+	var slice = VBoxContainer.new()
 	slice.theme=load(theme_path)
-	slice.vertical=true
 	slice.add_theme_constant_override("separation",0)
 	return slice
 
@@ -60,6 +58,11 @@ func loadTitle():
 	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	loadButtons(titleBar)
 	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS
+	
+	var title_name= RichTextLabel.new()
+	title_name.append_text("[font_size=14]"+app_name+"[/font_size]")
+	title_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	titleBar.add_child(title_name)
 	return titleBar
 	
 func createButton(region)->Button:
