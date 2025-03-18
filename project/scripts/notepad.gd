@@ -5,6 +5,11 @@ func _ready() -> void:
 	app_name="Notepad"
 	super._ready()
 
+func loadTitleName():
+	var title_content= TabBar.new()
+	title_content.add_tab("Waza")
+	return title_content
+
 func loadContent():
 	var content = PanelContainer.new()
 	content.size_flags_vertical=Control.SIZE_EXPAND_FILL

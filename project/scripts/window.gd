@@ -58,12 +58,14 @@ func loadTitle():
 	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	loadButtons(titleBar)
 	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS
+	titleBar.add_child(loadTitleName())
+	return titleBar
 	
+func loadTitleName():
 	var title_name= RichTextLabel.new()
 	title_name.append_text("[font_size=14]"+app_name+"[/font_size]")
 	title_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	titleBar.add_child(title_name)
-	return titleBar
+	return title_name
 	
 func createButton(region)->Button:
 	var button:Button = Button.new()
