@@ -1,5 +1,6 @@
 extends Control
 var windows:Array[FakeWindow]
+var file_manager= FileManager.new()
 
 func _ready() -> void:
 	pass
@@ -10,7 +11,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_texture_button_button_down() -> void:
-	var window =Notepad.new()
+	var window = file_manager.open_file("res://text/first_summer_job.txt")
 	window.mouse_filter=Control.MOUSE_FILTER_STOP
 	windows.append(window)
 	window.connect("gui_input",_on_window_clicked.bind(window))

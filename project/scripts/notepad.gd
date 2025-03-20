@@ -5,10 +5,23 @@ func _ready() -> void:
 	app_name="Notepad"
 	super._ready()
 
-func loadTitleName():
+func createWindow():
+	var tabbar=loadTabBar()
+	add_child(tabbar)
+	super.createWindow()
+	tabbar.add_tab("waza")
+	(print("is tabbar:", tabbar.size))
+
+func loadTabBar():
 	var title_content= TabBar.new()
-	title_content.add_tab("Waza")
+	title_content.size=Vector2(30,10)
 	return title_content
+
+func openFile(path):
+	var content_text=RichTextLabel.new()
+	content_text.append_text(get_txt_content(path))
+	content_text.bbcode_enabled=true
+	return content_text
 
 func loadContent():
 	var content = PanelContainer.new()
@@ -17,9 +30,7 @@ func loadContent():
 	var background = ColorRect.new()
 	background.color= Color(0.2,0.2,0.2)
 	
-	var content_text=RichTextLabel.new()
-	content_text.append_text(get_txt_content("res://text/first_summer_job.txt"))
-	content_text.bbcode_enabled=true
+	var content_text= openFile("res://text/first_summer_job.txt")
 
 	content.add_child(background)
 	content.add_child(content_text)
