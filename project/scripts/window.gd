@@ -2,12 +2,9 @@ class_name FakeWindow extends PanelContainer
 var dragging :=false; var drag_offset := Vector2.ZERO
 var resizing := false; var resize_direction := Vector2.ZERO
 var drag_start_pos := Vector2.ZERO; var drag_start_size := Vector2.ZERO
-const min_size := Vector2(100, 100)  # Minimum window size
-const max_size := Vector2(1000,600)
+var min_size := Vector2(100, 100); var max_size := Vector2(1000,600)
 var is_maximized = false
-var style_path
-var theme_path
-var app_name
+var style_path; var theme_path; var app_name; var file_path
 var prev_size = Vector2.ZERO
 var prev_position
 const button_size = Vector2(20,20)
@@ -63,8 +60,7 @@ func loadTitle():
 	titleBar.add_child(loadTitleName())
 	titleBar.size_flags_horizontal =Control.SIZE_EXPAND_FILL
 	titleBar.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	titleBar.custom_minimum_size.y =  20
-	titleBar.size_flags_stretch_ratio=0
+	titleBar.size.y =  button_size.y
 	titleBar.connect("gui_input", _on_titlebar_gui_input)
 	loadButtons(titleBar)
 	titleBar.mouse_filter=Control.MOUSE_FILTER_PASS

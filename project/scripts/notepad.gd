@@ -15,20 +15,21 @@ func loadTitleName():
 	title_tab_container.add_child(title_tab)
 	return title_tab_container
 
+func openFile(path):
+	var content_text=RichTextLabel.new()
+	content_text.append_text(get_txt_content(path))
+	content_text.bbcode_enabled=true
+	return content_text
+
 func loadContent():
-	var content = baseContent()
-	var background=ColorRect.new()
-	background.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	background.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	background.color=Color(0.2,0.2,0.2)
-	background.custom_minimum_size = Vector2(100, 100)
-	background.z_index=0
-	var text_content = RichTextLabel.new()
-	text_content.append_text(get_txt_content("res://text/first_summer_job.txt"))
-	text_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	text_content.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	text_content.custom_minimum_size = Vector2(100, 100) # Set a reasonable size
-	text_content.bbcode_enabled=true
+	var content = PanelContainer.new()
+	content.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	
+	var background = ColorRect.new()
+	background.color= Color(0.2,0.2,0.2)
+	
+	var content_text= openFile("res://text/first_summer_job.txt")
+
 	content.add_child(background)
 	content.add_child(text_content)
 	return content
