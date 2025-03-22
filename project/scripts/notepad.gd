@@ -6,14 +6,14 @@ func _ready() -> void:
 	app_name="Notepad"
 	super._ready()
 
-func loadTitleName():
+"""func loadTitleName():
 	var title_tab_container = PanelContainer.new()
 	title_tab_container.size_flags_horizontal=Control.SIZE_FILL
 	var title_tab=TabBar.new()
 	title_tab.add_tab("Current")
 	title_tab.add_tab("other")
 	title_tab_container.add_child(title_tab)
-	return title_tab_container
+	return title_tab_container"""
 
 func openFile(path):
 	var content_text=RichTextLabel.new()
@@ -28,10 +28,10 @@ func loadContent():
 	var background = ColorRect.new()
 	background.color= Color(0.2,0.2,0.2)
 	
-	var content_text= openFile("res://text/first_summer_job.txt")
+	var content_text= openFile(file_path)
 
 	content.add_child(background)
-	content.add_child(text_content)
+	content.add_child(content_text)
 	return content
 
 func get_txt_content(filePath):

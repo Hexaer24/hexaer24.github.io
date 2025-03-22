@@ -13,6 +13,7 @@ func open_file(file_path: String):
 	if extension in file_associations:
 		var app_name = file_associations[extension]
 		var app_instance =app_name.new()
+		app_instance.file_path=file_path
 		app_instance.openFile(file_path)
 		return app_instance
 	else:
