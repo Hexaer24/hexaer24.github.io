@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr0yfn4t04wnl"]
+[gd_scene load_steps=4 format=3 uid="uid://cr0yfn4t04wnl"]
 
 [ext_resource type="Texture2D" uid="uid://chjk802buotkg" path="res://assets/notepad.png" id="1_51gbg"]
 [ext_resource type="Script" uid="uid://bvk83ogsgbwng" path="res://scripts/desktop.gd" id="1_uwnhl"]
 [ext_resource type="Script" uid="uid://dgamdfpy1urxx" path="res://scripts/desktop_button.gd" id="3_fxvci"]
-[ext_resource type="Texture2D" uid="uid://ctqxe8syfdvu" path="res://assets/disk.png" id="4_yp4ya"]
 
 [node name="os" type="Control"]
 layout_mode = 3
@@ -23,16 +22,5 @@ offset_right = 131.0
 offset_bottom = 105.0
 texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
-path = "res://presentable/text/first_summer_job.txt"
-metadata/_custom_type_script = "uid://dgamdfpy1urxx"
-
-[node name="DesktopButton2" type="TextureButton" parent="Desktop"]
-layout_mode = 0
-offset_left = 157.0
-offset_top = 46.0
-offset_right = 221.0
-offset_bottom = 110.0
-texture_normal = ExtResource("4_yp4ya")
-script = ExtResource("3_fxvci")
-path = "res://presentable/music/seamlessWorlds.flac"
+path = "res://text/first_summer_job.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"

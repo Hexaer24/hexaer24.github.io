@@ -9,6 +9,7 @@ var prev_size = Vector2.ZERO
 var prev_position
 const button_size = Vector2(20,20)
 const viewport:NodePath="../../../"
+static var windows:Dictionary
 
 func _ready() -> void:
 	z_index=1
@@ -124,6 +125,7 @@ func _on_resize_handle_input(event):
 		size = new_size.clamp(min_size, max_size)  # Ensure min/max limits
 
 func _on_close_input():
+	windows.erase(self)
 	queue_free()
 
 func _on_maximize_pressed():

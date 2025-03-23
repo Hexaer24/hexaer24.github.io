@@ -16,6 +16,8 @@ func _ready() -> void:
 	return title_tab_container"""
 
 func openFile(path):
+	print(windows)
+	windows[self]= path
 	var content_text=RichTextLabel.new()
 	content_text.append_text(get_txt_content(path))
 	content_text.bbcode_enabled=true
