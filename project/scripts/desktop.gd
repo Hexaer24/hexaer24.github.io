@@ -3,7 +3,8 @@ extends Control
 
 var file_associations := {
 	"txt": Notepad,
-	"mp3": "MusicPlayer",
+	"mp3": MusicPlayer,
+	"flac": MusicPlayer,
 	"png": "ImageViewer"
 }
 

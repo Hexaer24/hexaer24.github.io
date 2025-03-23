@@ -24,8 +24,7 @@ func openFile(path):
 	return content_text
 
 func loadContent():
-	var content = PanelContainer.new()
-	content.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	var content = baseContent()
 	
 	var background = ColorRect.new()
 	background.color= Color(0.2,0.2,0.2)

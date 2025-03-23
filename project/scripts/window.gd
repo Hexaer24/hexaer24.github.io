@@ -27,7 +27,6 @@ func loadSeparation():
 
 func baseContent():
 	var content= PanelContainer.new()
-	content.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	return content
 
