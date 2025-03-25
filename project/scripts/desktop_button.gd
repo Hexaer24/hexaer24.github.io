@@ -1,4 +1,4 @@
-class_name DesktopButton extends Button
+class_name DesktopButton extends TextureButton
 @export_file() var path
 
 func _ready() -> void:

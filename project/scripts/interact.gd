@@ -26,7 +26,6 @@ func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
 		global_camera.get_child(0).current=true
 		interact()
-		print("interacted")
 
 
 func _on_body_exited(body) -> void:
