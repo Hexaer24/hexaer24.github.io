@@ -40,10 +40,7 @@ func createWindow(): #Order is still important now
 func resize():
 	var resize_handle = Control.new()
 	resize_handle.custom_minimum_size = button_size  #Resize area size
-	resize_handle.anchor_left =1.0
-	resize_handle.anchor_right =1.0
-	resize_handle.anchor_top =1.0
-	resize_handle.anchor_bottom =1.0
+	resize_handle.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	resize_handle.size_flags_vertical =Control.SIZE_SHRINK_END
 	resize_handle.size_flags_horizontal =Control.SIZE_SHRINK_END
 	resize_handle.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
@@ -75,7 +72,6 @@ func loadTitleName():
 func createButton(region)->Button:
 	var button:Button = Button.new()
 	button.custom_minimum_size=button_size
-	
 	var texture_container: TextureRect=TextureRect.new()
 	var button_texture: AtlasTexture =AtlasTexture.new()
 	button.focus_mode = Control.FOCUS_NONE
