@@ -69,19 +69,23 @@ func loadTitleName():
 	title_name.append_text("[font_size=14]"+app_name+"[/font_size]")
 	return title_name
 
-func createButton(region,b_size=size)->Button:
-	var button:Button = Button.new()
+func createButton(region,b_size=size)->TextureButton:
+	var button:TextureButton = TextureButton.new()
 	button.custom_minimum_size=b_size
+	var button_texture
+	button_texture.set_atlas(load(style_path))
+	button.set_region(region)
+	button.focus_mode = Control.FOCUS_NONE
+	button.texture_normal=button_texture
+	"""
 	var texture_container: TextureRect=TextureRect.new()
 	var button_texture: AtlasTexture =AtlasTexture.new()
-	button_texture
-	button.focus_mode = Control.FOCUS_NONE
 	button_texture.atlas=load(style_path)                #Fix this you goofball, should be able to use theme
 	button_texture.region = region
 	texture_container.texture=button_texture
 	texture_container.custom_minimum_size=b_size
 	texture_container.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-	button.add_child(texture_container)
+	button.add_child(texture_container)"""
 	return button
 	
 func loadButtons(title):
@@ -93,7 +97,7 @@ func loadButtons(title):
 	var close = createButton(Rect2(550,90,90,90),button_size)
 	close.connect("button_down", _on_close_input)
 	
-	var maximize_button:Button = createButton(Rect2(470,90,80,90),button_size)
+	var maximize_button = createButton(Rect2(470,90,80,90),button_size)
 	maximize_button.connect("button_down", _on_maximize_pressed)
 	
 	button_container.add_child(maximize_button)
