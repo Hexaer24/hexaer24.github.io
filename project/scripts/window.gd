@@ -72,9 +72,11 @@ func loadTitleName():
 func createButton(region,b_size=size)->TextureButton:
 	var button:TextureButton = TextureButton.new()
 	button.custom_minimum_size=b_size
-	var button_texture
+	var button_texture=AtlasTexture.new()
 	button_texture.set_atlas(load(style_path))
-	button.set_region(region)
+	button_texture.set_region(region)
+	button.ignore_texture_size=true
+	button.stretch_mode=TextureButton.STRETCH_SCALE
 	button.focus_mode = Control.FOCUS_NONE
 	button.texture_normal=button_texture
 	"""
