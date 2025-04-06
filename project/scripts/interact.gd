@@ -1,5 +1,6 @@
 class_name InteractZone extends Area3D
 @export_file("*.tscn") var message:String
+@export_node_path()
 
 var info
 var global_camera:Node
