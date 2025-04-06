@@ -13,10 +13,13 @@ static var windows:Dictionary
 
 func _ready() -> void:
 	z_index=1
-	size =Vector2(400,200)
-	position = Vector2(250,250)
+	size=Vector2(400,200)
+	scale=Vector2.ZERO
 	prev_position=position
 	createWindow()
+	var tween= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self,"scale",Vector2(1,1),0.5)
 
 func loadSeparation():
 	var slice = BoxContainer.new()
@@ -79,15 +82,6 @@ func createButton(region,b_size=size)->TextureButton:
 	button.stretch_mode=TextureButton.STRETCH_SCALE
 	button.focus_mode = Control.FOCUS_NONE
 	button.texture_normal=button_texture
-	"""
-	var texture_container: TextureRect=TextureRect.new()
-	var button_texture: AtlasTexture =AtlasTexture.new()
-	button_texture.atlas=load(style_path)                #Fix this you goofball, should be able to use theme
-	button_texture.region = region
-	texture_container.texture=button_texture
-	texture_container.custom_minimum_size=b_size
-	texture_container.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-	button.add_child(texture_container)"""
 	return button
 	
 func loadButtons(title):
@@ -127,6 +121,11 @@ func _on_resize_handle_input(event):
 		size = new_size.clamp(min_size, max_size)  # Ensure min/max limits
 
 func _on_close_input():
+	var tween= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	pivot_offset=size/2
+	tween.tween_property(self,"scale",Vector2.ZERO,0.5)
+	await tween.finished
 	windows.erase(self)
 	queue_free()
 

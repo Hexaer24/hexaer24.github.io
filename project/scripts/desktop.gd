@@ -24,6 +24,7 @@ func _on_texture_button_button_down(event: InputEvent, button: DesktopButton) ->
 		window.mouse_filter=Control.MOUSE_FILTER_STOP
 		window.connect("gui_input",_on_window_clicked.bind(window))
 		desktop.add_child(window)
+		window.position=button.position
 
 func _on_window_clicked(event: InputEvent, window:FakeWindow):
 	if event is InputEventMouseButton and event.pressed:
