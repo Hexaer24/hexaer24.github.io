@@ -18,7 +18,7 @@ func _ready() -> void:
 	prev_position=position
 	createWindow()
 	var tween= get_tree().create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(self,"scale",Vector2(1,1),0.5)
 
 func loadSeparation():
