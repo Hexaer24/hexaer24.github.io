@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=10 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
 [ext_resource type="Script" uid="uid://tra85djlfvxc" path="res://scripts/interact.gd" id="3_jfsct"]
 [ext_resource type="PackedScene" uid="uid://c2ejtni2uukf0" path="res://assets/room.glb" id="3_uqvx5"]
-[ext_resource type="Script" uid="uid://b4snw3froa6nl" path="res://scripts/camera.gd" id="4_0a2cn"]
 [ext_resource type="PackedScene" uid="uid://cr0yfn4t04wnl" path="res://scenes/os.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://bfhy7ggin1cpj" path="res://scripts/GUI.gd" id="8_7r4gi"]
 
@@ -35,11 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 script = ExtResource("3_jfsct")
 message = "res://scenes/os.tscn"
 
-[node name="CameraRig" type="Marker3D" parent="."]
-script = ExtResource("4_0a2cn")
-
-[node name="Camera3D" type="Camera3D" parent="CameraRig"]
-
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1.40039, 0, 0.720863, 0, 1, 0, -1.42784, 0, 0.707007, -1.68495, 1.30064, -1.69361)
 script = ExtResource("8_7r4gi")
@@ -59,4 +53,5 @@ size = Vector2i(1024, 512)
 
 [node name="os" parent="Node3D/SubViewport" instance=ExtResource("7_i7141")]
 
+[editable path="player"]
 [editable path="room"]
