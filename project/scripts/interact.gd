@@ -17,7 +17,8 @@ func _ready() -> void:
 	add_child(hitbox)
 
 func interact():
-	global_camera.move_to(Vector3(-1.1,1.3,-1.1,), Vector3(0,45,0))
+	global_camera.move_to(Vector3(-1.1,1.3,-1.1,), Vector3(0,45,0), func (tween:Tween):
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO))
 
 
 func _on_body_entered(body) -> void:

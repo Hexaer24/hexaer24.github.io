@@ -12,14 +12,14 @@ const viewport:NodePath="../../../"
 static var windows:Dictionary
 
 func _ready() -> void:
+	var tween= get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self,"scale",Vector2(1,1),0.5)
 	z_index=1
 	size=Vector2(400,200)
 	scale=Vector2.ZERO
 	prev_position=position
 	createWindow()
-	var tween= get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
-	tween.tween_property(self,"scale",Vector2(1,1),0.5)
 
 func loadSeparation():
 	var slice = BoxContainer.new()
