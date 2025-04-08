@@ -1,30 +1,30 @@
 class_name InteractZone extends Area3D
-@export_file("*.tscn") var message:String
-@export_node_path()
+@export_node_path("Marker3D") var marker_path
+var marker
 
 var info
-var not_camera
+var not_camera:Node3D
 var thread:Thread
 
 func _ready() -> void:
+	marker=get_node(marker_path)
 	not_camera=get_node("../player/Marker3D")
 	thread = Thread.new()
-	
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 	var hitbox= CollisionShape3D.new()
 	hitbox.shape=BoxShape3D.new()
 	add_child(hitbox)
-
-func interact():
-	not_camera.move_camera_to(Vector3(0,1,0),Vector3(-1.1,1.3,-1.1), Vector3(0,45,0))
+	
 
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
-		interact()
+		print("Entered")
+		not_camera.move_camera_to(Vector3(0,1,0),marker)
 
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
+		print("Exited")
 		not_camera.move_camera_to(Vector3(0,1,0))
