@@ -11,4 +11,3 @@ mesh = SubResource("BoxMesh_tp5ty")
 
 [node name="InteractZone" type="Area3D" parent="."]
 script = ExtResource("1_suq6i")
-message = "res://scenes/os.tscn"
