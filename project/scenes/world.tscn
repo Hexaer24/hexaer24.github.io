@@ -35,6 +35,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 script = ExtResource("3_jfsct")
 marker_path = NodePath("../ComputerMarker")
+look_object_path = NodePath("../Node3D/MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractZone"]
 mesh = SubResource("BoxMesh_71j4m")
