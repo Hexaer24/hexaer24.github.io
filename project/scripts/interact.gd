@@ -5,7 +5,7 @@ var marker
 var look_object
 var info
 var not_camera:Node3D
-var size=Vector3(0.1,0.1,0.1)
+var size=Vector3(0.01,0.01,0.01)
 
 func _ready() -> void:
 	marker=get_node(marker_path)
