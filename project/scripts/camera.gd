@@ -18,49 +18,26 @@ func move_camera_to(curve_point:Vector3,there=self,reverse=false,look_there=play
 	if (!running):
 		running = true
 		while (time<1):
-			var pos = adaptive_bezier(ease_in_out(time), current_objective.global_position, curve_point)
-			camera.global_position = pos
-			
+			camera.global_position = adaptive_bezier(ease_in_out(time), current_objective.global_position, curve_point)
+			adapative_rotation(ease_in_out(time),look_there)
 			time+=get_process_delta_time()
 			await get_tree().process_frame
 		time=0
 		running =false
 	else:
-		time=0
-func find_c_from_a_direction(a_transform: Transform3D, b: Vector3) -> Vector3:
-	# Use a's local forward direction — change to .x or .z depending on your setup
-	var ac_direction = a_transform.basis.x.normalized()
+		time=1-pow(1,2*time)
 
-	# Make sure everything is on the same height as b
-	var a_pos = a_transform.origin
-	var a_proj = Vector3(a_pos.x, b.y, a_pos.z)
-	var b_proj = Vector3(b.x, b.y, b.z)
-
-	# Vector from a to b, in the XZ plane
-	var ab = b_proj - a_proj
-
-	# Project ab onto ac_direction
-	var proj_length = ab.dot(ac_direction)
-	var proj_vector = ac_direction * proj_length
-
-	# Compute c such that a→c is along a's direction, and perpendicular to b→c
-	var c_proj = a_proj + proj_vector
-	var c = Vector3(c_proj.x, b.y, c_proj.z)
-	return c
 
 ## args cam_pos, look_rotation
 func update_objectives(objective=current_objective,look_objective=current_look_objective):
 	current_objective=objective
 	current_look_objective=look_objective
 
-func get_rotation_look_at(target_position: Vector3):
-	var current_rotation = camera.global_transform.basis.get_rotation_quaternion()
-
-	var direction = (target_position - camera.global_transform.origin).normalized()
-	var target_basis = Basis.looking_at(direction)
-	var target_rotation = target_basis.get_rotation_quaternion()
-	return target_rotation
-
+func adapative_rotation(t, look_there):
+	var T=camera.global_transform.looking_at(current_objective.global_transform.origin, Vector3(0,1,0))
+	camera.global_transform.basis.y=lerp(camera.global_transform.basis.y, T.basis.y, t)
+	camera.global_transform.basis.x=lerp(camera.global_transform.basis.x, T.basis.x, t)
+	camera.global_transform.basis.z=lerp(camera.global_transform.basis.z, T.basis.z, t)
 
 func adaptive_bezier(t,there:Vector3,curve_point:Vector3):
 	var q0=camera.global_position.lerp(curve_point,t)
