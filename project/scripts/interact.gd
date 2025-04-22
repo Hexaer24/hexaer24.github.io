@@ -1,5 +1,5 @@
 class_name InteractZone extends Area3D
-@export_node_path("Marker3D") var marker_path
+@export_node_path("Marker3D") var marker_path:NodePath
 @export_node_path() var look_object_path
 var marker
 var look_object
@@ -29,4 +29,4 @@ func _on_body_entered(body) -> void:
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
-		not_camera.move_camera_to(Vector3(0,1,0),not_camera,true,)
+		not_camera.move_camera_to(Vector3(0,1,0),not_camera,true)

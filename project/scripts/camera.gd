@@ -1,41 +1,32 @@
 extends Marker3D
 var camera:Camera3D
+var player:CharacterBody3D
 var time=0
-var current_objective:Vector3
-var current_look_objective:Vector3
+var current_objective:Marker3D
+var current_look_objective:Node3D
 var current_rot
 var running= false
 
 func _ready() -> void:
+	player=get_node("..")
 	camera=get_node("Camera3D")
 	current_rot = camera.global_transform.basis
 
-## Dictionnary to differentiate position and rotation, enter the keywords as keys
-func move_camera_to(curve_point:Vector3,there=self.global_position,reverse=false, look_pos:Dictionary[String,Vector3]={"rotation":Vector3.ZERO}):
-	if look_pos.has("position"):
-		if reverse:
-			var get_look_target= find_c_from_a_direction(Transform3D(Basis(there.global_rotation),there.global_position),camera.position)
-		look_pos=get_rotation_look_at(look_pos.get("position"))
-	
-	var get_look_target
-	update_objectives(there,look_pos)
-	current_objective=there
+## Nodes are pointers, will update live in function
+func move_camera_to(curve_point:Vector3,there=self,reverse=false,look_there=player):
+	update_objectives(there,look_there)
 	if (!running):
 		running = true
 		while (time<1):
-			var pos = adaptive_bezier(ease_in_out(time), current_objective, curve_point)
-			
-			current_look_objective=get_look_target.call(pos)
+			var pos = adaptive_bezier(ease_in_out(time), current_objective.global_position, curve_point)
 			camera.global_position = pos
-			smooth_look_at(time,current_look_objective)
 			
 			time+=get_process_delta_time()
 			await get_tree().process_frame
-		smooth_look_at(time,current_look_objective)
 		time=0
 		running =false
 	else:
-		time=1-time if reverse else 0
+		time=0
 func find_c_from_a_direction(a_transform: Transform3D, b: Vector3) -> Vector3:
 	# Use a's local forward direction — change to .x or .z depending on your setup
 	var ac_direction = a_transform.basis.x.normalized()
@@ -55,9 +46,9 @@ func find_c_from_a_direction(a_transform: Transform3D, b: Vector3) -> Vector3:
 	# Compute c such that a→c is along a's direction, and perpendicular to b→c
 	var c_proj = a_proj + proj_vector
 	var c = Vector3(c_proj.x, b.y, c_proj.z)
-
 	return c
 
+## args cam_pos, look_rotation
 func update_objectives(objective=current_objective,look_objective=current_look_objective):
 	current_objective=objective
 	current_look_objective=look_objective
