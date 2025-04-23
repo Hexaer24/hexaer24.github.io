@@ -13,13 +13,13 @@ func _ready() -> void:
 	current_rot = camera.global_transform.basis
 
 ## Nodes are pointers, will update live in function
-func move_camera_to(curve_point:Vector3,there=self,reverse=false,look_there=player):
+func move_camera_to(curve_point:Vector3,there=self,look_there=player):
 	update_objectives(there,look_there)
 	if (!running):
 		running = true
 		while (time<1):
 			camera.global_position = adaptive_bezier(ease_in_out(time), current_objective.global_position, curve_point)
-			adapative_rotation(ease_in_out(time),look_there)
+			adapative_rotation(ease_in_out(time))
 			time+=get_process_delta_time()
 			await get_tree().process_frame
 		time=0
@@ -33,8 +33,8 @@ func update_objectives(objective=current_objective,look_objective=current_look_o
 	current_objective=objective
 	current_look_objective=look_objective
 
-func adapative_rotation(t, look_there):
-	var T=camera.global_transform.looking_at(current_objective.global_transform.origin, Vector3(0,1,0))
+func adapative_rotation(t):
+	var T=camera.global_transform.looking_at(current_look_objective.global_transform.origin, Vector3(0,1,0))
 	camera.global_transform.basis.y=lerp(camera.global_transform.basis.y, T.basis.y, t)
 	camera.global_transform.basis.x=lerp(camera.global_transform.basis.x, T.basis.x, t)
 	camera.global_transform.basis.z=lerp(camera.global_transform.basis.z, T.basis.z, t)

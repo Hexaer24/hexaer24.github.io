@@ -24,9 +24,9 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
-		not_camera.move_camera_to(Vector3(0,1,0),marker,false,look_object)
+		not_camera.move_camera_to(Vector3(0,1,0),marker,look_object)
 
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
-		not_camera.move_camera_to(Vector3(0,1,0),not_camera,true)
+		not_camera.move_camera_to(Vector3(0,1,0),not_camera)
