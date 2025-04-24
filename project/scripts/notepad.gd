@@ -15,6 +15,7 @@ func _ready() -> void:
 	title_tab_container.add_child(title_tab)
 	return title_tab_container"""
 
+# Doesn't work in html, should load form TextFile resource instead!
 func openFile(path):
 	windows[self]= path
 	var content_text=RichTextLabel.new()
