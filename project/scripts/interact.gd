@@ -6,6 +6,7 @@ var look_object
 var info
 var not_camera:Node3D
 var size=Vector3(0.01,0.01,0.01)
+		
 
 func _ready() -> void:
 	marker=get_node(marker_path)
@@ -19,8 +20,6 @@ func _ready() -> void:
 	hitbox.shape=BoxShape3D.new()
 	hitbox.shape.size=size
 	add_child(hitbox)
-	
-
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):

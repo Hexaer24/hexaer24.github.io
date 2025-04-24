@@ -13,6 +13,7 @@ func _ready() -> void:
 	current_rot = camera.global_transform.basis
 
 ## Nodes are pointers, will update live in function
+## Works for now but speen should be fixed one day
 func move_camera_to(curve_point:Vector3,there=self,look_there=player):
 	update_objectives(there,look_there)
 	if (!running):
