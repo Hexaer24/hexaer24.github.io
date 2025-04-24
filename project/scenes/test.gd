@@ -4,4 +4,4 @@ func _ready() -> void:
 func get_txt_content(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = file.get_as_text()
-	return content
+	return content if !content.is_empty() else "bugged"
