@@ -36,3 +36,14 @@ texture_normal = ExtResource("4_yp4ya")
 script = ExtResource("3_fxvci")
 path = "res://presentable/music/seamlessWorlds.flac"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton3" type="TextureButton" parent="Desktop"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 48.0
+offset_right = 458.0
+offset_bottom = 112.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://cviikt66xm25t"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"

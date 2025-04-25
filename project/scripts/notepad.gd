@@ -17,9 +17,10 @@ func _ready() -> void:
 
 # Doesn't work in html, should load form TextFile resource instead!
 func openFile(path):
+	var text_res=load(path) as TextResource
 	windows[self]= path
 	var content_text=RichTextLabel.new()
-	content_text.append_text(get_txt_content(path))
+	content_text.append_text(text_res.text)
 	content_text.bbcode_enabled=true
 	return content_text
 
