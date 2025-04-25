@@ -15,17 +15,6 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="DesktopButton" type="TextureButton" parent="Desktop"]
-layout_mode = 0
-offset_left = 81.0
-offset_top = 58.0
-offset_right = 145.0
-offset_bottom = 122.0
-texture_normal = ExtResource("1_51gbg")
-script = ExtResource("3_fxvci")
-path = "res://presentable/text/first_summer_job.txt"
-metadata/_custom_type_script = "uid://dgamdfpy1urxx"
-
 [node name="DesktopButton2" type="TextureButton" parent="Desktop"]
 layout_mode = 0
 offset_left = 168.0
@@ -39,10 +28,10 @@ metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
 [node name="DesktopButton3" type="TextureButton" parent="Desktop"]
 layout_mode = 0
-offset_left = 394.0
-offset_top = 48.0
-offset_right = 458.0
-offset_bottom = 112.0
+offset_left = 101.0
+offset_top = 57.0
+offset_right = 165.0
+offset_bottom = 121.0
 texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
 path = "uid://cviikt66xm25t"
