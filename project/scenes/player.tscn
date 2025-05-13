@@ -2,16 +2,12 @@
 
 [ext_resource type="Script" uid="uid://boakxaa7nnh4l" path="res://scripts/player.gd" id="1_lkl71"]
 [ext_resource type="Script" uid="uid://b4snw3froa6nl" path="res://scripts/camera.gd" id="2_g2els"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_k51r0"]
+[ext_resource type="PackedScene" uid="uid://dcj7p8tu3plov" path="res://assets/player_model.glb" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wd087"]
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_lkl71")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_k51r0")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wd087")
@@ -21,3 +17,6 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
 script = ExtResource("2_g2els")
 
 [node name="Camera3D" type="Camera3D" parent="Marker3D"]
+
+[node name="player_model" parent="." instance=ExtResource("3_qhqgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.899863, 0)
