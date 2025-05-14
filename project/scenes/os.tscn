@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr0yfn4t04wnl"]
+[gd_scene load_steps=6 format=3 uid="uid://cr0yfn4t04wnl"]
 
 [ext_resource type="Texture2D" uid="uid://chjk802buotkg" path="res://assets/notepad.png" id="1_51gbg"]
 [ext_resource type="Script" uid="uid://bvk83ogsgbwng" path="res://scripts/desktop.gd" id="1_uwnhl"]
 [ext_resource type="Script" uid="uid://dgamdfpy1urxx" path="res://scripts/desktop_button.gd" id="3_fxvci"]
 [ext_resource type="Texture2D" uid="uid://ctqxe8syfdvu" path="res://assets/disk.png" id="4_yp4ya"]
+[ext_resource type="Texture2D" uid="uid://co81f028qmkki" path="res://assets/Desktop-background.png" id="5_72ne2"]
 
 [node name="os" type="Control"]
 layout_mode = 3
@@ -36,3 +37,10 @@ texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
 path = "uid://cviikt66xm25t"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="Desktop-background" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(576, 288)
+scale = Vector2(9, 9)
+texture = ExtResource("5_72ne2")
