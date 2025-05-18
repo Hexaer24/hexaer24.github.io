@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://d07vgpmt7xws4"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_ve254"]
+
+[resource]
+script = ExtResource("1_ve254")
+text = "[center]Me contacter [/center]
+[ul]Email: Mattis.flood@gmail.com
+[ul]Mon [url=https://github.com/Hexaer24]github"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

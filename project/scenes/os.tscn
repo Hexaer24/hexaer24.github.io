@@ -11,23 +11,18 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uwnhl")
 
-[node name="Desktop" type="TextureRect" parent="."]
+[node name="DesktopButton2" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="DesktopButton2" type="TextureButton" parent="Desktop"]
-layout_mode = 0
-offset_left = 168.0
+offset_left = 217.0
 offset_top = 54.0
-offset_right = 232.0
+offset_right = 281.0
 offset_bottom = 118.0
 texture_normal = ExtResource("4_yp4ya")
 script = ExtResource("3_fxvci")
 path = "res://presentable/music/seamlessWorlds.flac"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton3" type="TextureButton" parent="Desktop"]
+[node name="DesktopButton3" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 57.0
@@ -36,6 +31,30 @@ offset_bottom = 121.0
 texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
 path = "uid://cviikt66xm25t"
+opt_title = "IA_side_job.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 148.0
+offset_right = 164.0
+offset_bottom = 212.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://d07vgpmt7xws4"
+opt_title = "contact.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton4" type="TextureButton" parent="."]
+offset_left = 221.0
+offset_top = 154.0
+offset_right = 285.0
+offset_bottom = 218.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://b3h07v5akjhgw"
+opt_title = "welcome.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
 [node name="Desktop-background" type="Sprite2D" parent="."]
