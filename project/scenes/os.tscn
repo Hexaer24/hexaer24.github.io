@@ -47,6 +47,7 @@ opt_title = "contact.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
 [node name="DesktopButton4" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 221.0
 offset_top = 154.0
 offset_right = 285.0

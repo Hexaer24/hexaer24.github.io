@@ -1,10 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bildxi1onwxua"]
+[gd_scene load_steps=14 format=3 uid="uid://bildxi1onwxua"]
 
 [ext_resource type="PackedScene" uid="uid://kog4sf7ephm" path="res://scenes/player.tscn" id="1_5wtif"]
 [ext_resource type="Script" uid="uid://tra85djlfvxc" path="res://scripts/interact.gd" id="3_jfsct"]
 [ext_resource type="PackedScene" uid="uid://c2ejtni2uukf0" path="res://assets/room.glb" id="3_uqvx5"]
 [ext_resource type="PackedScene" uid="uid://cr0yfn4t04wnl" path="res://scenes/os.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://bfhy7ggin1cpj" path="res://scripts/GUI.gd" id="8_7r4gi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_71j4m"]
+sky_top_color = Color(0.555184, 0.408699, 0.366029, 1)
+sky_horizon_color = Color(0.874326, 0.576089, 0.357414, 1)
+sky_curve = 0.172306
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.814191, 0.605655, 0.437172, 1)
+
+[sub_resource type="Sky" id="Sky_qfnet"]
+sky_material = SubResource("ProceduralSkyMaterial_71j4m")
+
+[sub_resource type="Environment" id="Environment_i7141"]
+background_mode = 2
+sky = SubResource("Sky_qfnet")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_71j4m"]
 
@@ -13,6 +29,7 @@ viewport_path = NodePath("Node3D/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r4gi"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_4mrxx")
 
 [sub_resource type="QuadMesh" id="QuadMesh_e3hyu"]
@@ -22,11 +39,14 @@ size = Vector3(1, 1, 0.0678828)
 
 [node name="world" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 5, -25)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i7141")
+
 [node name="player" parent="." instance=ExtResource("1_5wtif")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 5, 14)
 
 [node name="room" parent="." instance=ExtResource("3_uqvx5")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
