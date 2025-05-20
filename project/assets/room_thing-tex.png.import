@@ -2,23 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4oveesgklt8q"
-path="res://.godot/imported/room_ground-tex.png-6c98f822da0bd7c71049ab7dd84be42e.ctex"
+uid="uid://b2k53ekb1us3g"
+path.s3tc="res://.godot/imported/room_thing-tex.png-1cae24b5dbf9fdec93bbba04a52f67fe.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
-"md5": "1db0d9f92ac98c587bfd7393fede5b16"
+"md5": "1b715393da27f9e1fa97ae9d551df7ae"
 }
 
 [deps]
 
-source_file="res://assets/room_ground-tex.png"
-dest_files=["res://.godot/imported/room_ground-tex.png-6c98f822da0bd7c71049ab7dd84be42e.ctex"]
+source_file="res://assets/room_thing-tex.png"
+dest_files=["res://.godot/imported/room_thing-tex.png-1cae24b5dbf9fdec93bbba04a52f67fe.s3tc.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
