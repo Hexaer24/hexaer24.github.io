@@ -50,7 +50,6 @@ func handle_mouse(event):
 			event.relative=Vector2(0,0)
 		else:
 			event.relative =mouse_pos2D - last_mouse_pos_2D
-			
 		last_mouse_pos_2D=mouse_pos2D
 	viewport.push_input(event)
 	
@@ -58,15 +57,14 @@ func find_mouse(pos:Vector2):
 	var camera= get_viewport().get_camera_3d()
 	
 	var dss: PhysicsDirectSpaceState3D=get_world_3d().direct_space_state
-	
 	var rayparam= PhysicsRayQueryParameters3D.new()
 	rayparam.from=camera.project_ray_origin(pos)
-	
 	var dis =5
 	rayparam.to=rayparam.from+camera.project_ray_normal(pos)*dis
 	rayparam.collide_with_bodies=false
 	rayparam.collide_with_areas=true
 	var result=dss.intersect_ray(rayparam)
+	print(result)
 	if result.size()>0:
 		return result.position
 	else:

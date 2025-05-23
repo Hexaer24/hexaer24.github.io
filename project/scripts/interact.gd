@@ -13,7 +13,7 @@ func _ready() -> void:
 	if look_object_path!=null:
 		look_object=get_node(look_object_path)
 	
-	not_camera=get_node("../player/Marker3D")
+	not_camera=get_node("/root/world/player/Marker3D")
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 	var hitbox= CollisionShape3D.new()
@@ -23,9 +23,11 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
+		Broadcast.emit_signal("player_cutscene_entered")
 		not_camera.move_camera_to(Vector3(0,1,0),marker,look_object)
 
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
+		Broadcast.emit_signal("player_cutscene_exited")
 		not_camera.move_camera_to(Vector3(0,1,0),not_camera)
