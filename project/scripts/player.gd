@@ -3,6 +3,8 @@ const SPEED = 5.0
 var is_idle:bool=true
 enum States{NONE,IDLE,MOVING}
 @onready var timer_idle=$Timer
+@onready var anim=$player_model/AnimationPlayer
+@onready var model = $player_model
 var state:States= States.NONE:
 	set=set_state
 
@@ -12,10 +14,16 @@ func set_state(new_state):
 	var previous_state:=state
 	state=new_state
 	if state==States.IDLE:
+		anim.play("idle")
 		timer_idle.start(5)
 	if state==States.MOVING:
 		timer_idle.stop()
+		anim.play("run")
 		Broadcast.emit_signal("player_moving")
+
+func _ready() -> void:
+	Broadcast.connect("player_cutscene_entered",_on_player_cutscene_entered)
+	Broadcast.connect("player_cutscene_exited",_on_player_cutscene_exited)
 
 func _physics_process(_delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -27,13 +35,14 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if state==States.MOVING:
+		model.rotation.y = atan2(velocity.x,velocity.z)
 	move_and_slide()
-
-
-func move_cam_to(there:Vector3, rot:Vector3):
-	$Camera3D.position=there
-	$Camera3D.rotation=rot
-
-
 func _on_timer_timeout() -> void:
 	Broadcast.emit_signal("player_idle")
+	anim.play("impatience")
+
+func _on_player_cutscene_entered():
+	visible=false
+func _on_player_cutscene_exited():
+	visible=true

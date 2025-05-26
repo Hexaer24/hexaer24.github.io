@@ -64,3 +64,15 @@ texture_filter = 1
 position = Vector2(576, 288)
 scale = Vector2(9, 9)
 texture = ExtResource("5_72ne2")
+
+[node name="DesktopButton5" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 248.0
+offset_right = 160.0
+offset_bottom = 312.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://dk2i7n3nocw57"
+opt_title = "Portfolio.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"

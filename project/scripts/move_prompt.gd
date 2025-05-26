@@ -15,4 +15,4 @@ func appear():
 
 func disappear():
 	var tween =get_tree().create_tween()
-	tween.tween_property(self,"self_modulate:a",0,0.5)
+	tween.tween_property(self,"self_modulate:a",0,0.5) 
