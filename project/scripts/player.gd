@@ -22,7 +22,7 @@ func set_state(new_state):
 		Broadcast.emit_signal("player_moving")
 
 func _ready() -> void:
-	var main_focus=$"../Node3D"
+	var main_focus=$"../room/Cylinder/InteractZone"
 	Broadcast.connect("player_cutscene_entered",_on_player_cutscene_entered)
 	Broadcast.connect("player_cutscene_exited",_on_player_cutscene_exited)
 	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
