@@ -8,10 +8,12 @@ var style_path; var theme_path; var app_name; var file_path
 var prev_size = Vector2.ZERO
 var prev_position
 const button_size = Vector2(20,20)
-const viewport:NodePath="../../../"
+var viewport
 static var windows:Dictionary
 
 func _ready() -> void:
+	viewport=get_node("../../")
+	print(viewport.size)
 	var tween= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self,"scale",Vector2(1,1),0.5)
@@ -138,6 +140,6 @@ func _on_maximize_pressed():
 	else:
 		prev_size = size
 		prev_position = position
-		tween.parallel().tween_property(self,"size",Vector2(get_node(viewport).size),0.2)
+		tween.parallel().tween_property(self,"size",Vector2(viewport.size),0.2)
 		tween.parallel().tween_property(self,"position",Vector2(0,0),0.2)
 	is_maximized = !is_maximized  # Toggle maximize state

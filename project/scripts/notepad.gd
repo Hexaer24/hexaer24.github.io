@@ -6,15 +6,6 @@ func _ready() -> void:
 	app_name="Notepad"
 	super._ready()
 
-"""func loadTitleName():
-	var title_tab_container = PanelContainer.new()
-	title_tab_container.size_flags_horizontal=Control.SIZE_FILL
-	var title_tab=TabBar.new()
-	title_tab.add_tab("Current")
-	title_tab.add_tab("other")
-	title_tab_container.add_child(title_tab)
-	return title_tab_container"""
-
 # Doesn't work in html, should load form TextFile resource instead!
 func openFile(path):
 	var text_res=load(path) as TextResource
@@ -22,8 +13,12 @@ func openFile(path):
 	var content_text=RichTextLabel.new()
 	content_text.append_text(text_res.text)
 	content_text.bbcode_enabled=true
+	content_text.connect("meta_clicked",handle_url)
 	return content_text
-
+	
+func handle_url(type):
+	OS.shell_open(str(type))
+	
 func loadContent():
 	var content = baseContent()
 	
