@@ -5,6 +5,8 @@ enum States{NONE,IDLE,MOVING}
 @onready var timer_idle=$Timer
 @onready var anim=$player_model/AnimationPlayer
 @onready var model = $player_model
+var is_in_zone:bool=false
+var is_in_cutscene:bool=false
 var state:States= States.NONE:
 	set=set_state
 
@@ -23,10 +25,17 @@ func set_state(new_state):
 
 func _ready() -> void:
 	var main_focus=$"../room/Cylinder/InteractZone"
-	Broadcast.connect("player_cutscene_entered",_on_player_cutscene_entered)
-	Broadcast.connect("player_cutscene_exited",_on_player_cutscene_exited)
 	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		global_position=main_focus.global_position
+
+func in_zone(zone:InteractZone):
+	while is_in_zone:
+		if Input.is_action_just_pressed("interact"):
+			zone.cam_move(self)
+		if Input.is_action_just_pressed("cancel"):
+			if is_in_cutscene:
+				zone.cam_move(self)
+		await get_tree().process_frame
 
 func _physics_process(_delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -44,8 +53,3 @@ func _physics_process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	Broadcast.emit_signal("player_idle")
 	anim.play("impatience")
-
-func _on_player_cutscene_entered():
-	visible=false
-func _on_player_cutscene_exited():
-	visible=true

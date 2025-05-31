@@ -5,8 +5,8 @@ var marker
 var look_object
 var info
 var not_camera:Node3D
-var size=Vector3(0.01,0.01,0.01)
-		
+var label:Label
+var mid_point_bezier=Vector3(0,1,0)
 
 func _ready() -> void:
 	marker=get_node(marker_path)
@@ -16,18 +16,45 @@ func _ready() -> void:
 	not_camera=get_node("/root/world/player/Marker3D")
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
-	var hitbox= CollisionShape3D.new()
-	hitbox.shape=BoxShape3D.new()
-	hitbox.shape.size=size
-	add_child(hitbox)
+	add_hitbox()
+	label = add_label("Appuyer sur E pour intéragir")
 
 func _on_body_entered(body) -> void:
 	if (body is CharacterBody3D):
+		body.is_in_zone=true
+		body.in_zone(self)
+		label.visible=true
 		Broadcast.emit_signal("player_cutscene_entered")
-		not_camera.move_camera_to(Vector3(0,1,0),marker,look_object)
-
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
+		body.is_in_zone=false
+		label.visible=false
 		Broadcast.emit_signal("player_cutscene_exited")
-		not_camera.move_camera_to(Vector3(0,1,0),not_camera)
+		if body.is_in_cutscene:
+			cam_move(body)
+
+func cam_move(player:CharacterBody3D):
+	if !player.is_in_cutscene:
+		not_camera.move_camera_to(mid_point_bezier,marker,look_object)
+		player.visible=false
+	else:
+		not_camera.move_camera_to(mid_point_bezier,not_camera)
+		player.visible=true
+	player.is_in_cutscene=!player.is_in_cutscene
+
+func add_label(text:String):
+	var label=Label.new()
+	label.text=text
+	label.add_theme_color_override("font_outline_color",Color.BLACK)
+	label.add_theme_constant_override("outline_size",4)
+	label.set_anchors_preset(Control.PRESET_CENTER)
+	add_child(label)
+	label.visible=false
+	return label
+
+func add_hitbox():
+	var hitbox= CollisionShape3D.new()
+	hitbox.shape=BoxShape3D.new()
+	hitbox.shape.size=Vector3.ONE
+	add_child(hitbox)

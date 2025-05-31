@@ -2,6 +2,8 @@ extends Label
 var player
 var player_is_in_cutscene:bool= false
 func _ready() -> void:
+	add_theme_color_override("font_outline_color",Color.BLACK)
+	add_theme_constant_override("outline_size",4)
 	self_modulate.a=0
 	player=get_node("/root/world/player")
 	Broadcast.connect("player_idle",appear);Broadcast.connect("player_moving",disappear)

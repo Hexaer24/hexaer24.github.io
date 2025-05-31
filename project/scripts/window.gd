@@ -13,7 +13,6 @@ static var windows:Dictionary
 
 func _ready() -> void:
 	viewport=get_node("../../")
-	print(viewport.size)
 	var tween= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self,"scale",Vector2(1,1),0.5)
