@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://cmjtqx0j1are6"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_ldohe"]
+
+[resource]
+script = ExtResource("1_ldohe")
+text = "[center]Exploitation d'une base de donnée[/center]
+
+Nous étions requis de nettoyer une base de données en créant de nouvelles tables et vues à partir d'un code déjà existant.
+Ensuite nous avons fait des statistiques avec ces bases de données en utilisant le langage R et ggplot pour les modéliser.
+Enfin, nous devions faire un établi des risques et des contraintes du projet.
+
+Ce travail était en binôme, je me suis occupé de la moitié du nettoyage du code et de la plupart des graphiques de R, mais seulement quelque suggestions sur les contraintes et risques du projets
+
+Temps de travail: 12h"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

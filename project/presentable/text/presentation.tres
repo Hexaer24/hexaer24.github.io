@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://c0f73goj0ka04"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_7fw5b"]
+
+[resource]
+script = ExtResource("1_7fw5b")
+text = "[center]Qui suis-je?[/center]
+
+Je suis Mattis Flood, j'ai 18 ans et j'étudie actuellement à l'IUT2 de Grenoble en BUT technologique. Je suis passioné par la programmation, surtout quand il s'agit de jeux vidéos comme vous pouvez le voir.
+J'éspère pouvoir être développeur (de jeux vidéos ou non) plus tard.
+
+[b]Formation:[/b]
+[ul]
+BAC STI2D
+BUT Informatique
+[/ul]
+
+[b]Compétences[/b]
+[indent]
+Programmation
+[ul]
+Python
+Java
+GDScript
+SQL
+Assembleur
+[/ul]
+
+Langages
+[ul]
+Bilingue anglais
+B2 espagnol
+[/ul]
+[/indent]
+
+
+[b]Diplômes[/b]
+[ul]
+Brevet
+BAC STI2D
+[/ul]
+BUT informatique sera inclus dans le futur
+
+
+[b]Passions[/b]
+[ul]
+Sports: tennis de table, volley-ball, handball, et tout autre sport compétitif nécessitant une balle.
+Informatique: programmation et développement de jeux, ou modifications de jeux déjà existants.
+[/ul]
+"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://dgkt4gvya450r"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_2b63m"]
+
+[resource]
+script = ExtResource("1_2b63m")
+text = "[center]Installation d'un serveur debian [/center]
+
+Pour la SAE S2.03 au sein de l'IUT2, nous avons appris à installer l' Operating System debian à partir d'une image.
+Nous y avons aussi rajouté Apache, PostgreSQL, PHP et PHPgadmin dessus.
+De plus, j'ai fait les exercices bonus pour pouvoir accéder au serveur distant via une clé ssh, et j'ai encrypté les mots de passes de PostgreSQL avec argon2.
+
+L'introduction à Apache, PHP et PHPgadmin était difficile pour la raison que nous ne l'avions jamais vu auparavant. L'encryption des mots de passe nécessitait la construction d'une extension de PostgreSQL qui n'était pas expliqué avant non plus.
+
+Temps de travail: 8h"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

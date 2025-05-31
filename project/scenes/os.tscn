@@ -61,8 +61,8 @@ metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 [node name="Desktop-background" type="Sprite2D" parent="."]
 z_index = -1
 texture_filter = 1
-position = Vector2(576, 288)
-scale = Vector2(9, 9)
+position = Vector2(512, 256)
+scale = Vector2(8, 8)
 texture = ExtResource("5_72ne2")
 
 [node name="DesktopButton5" type="TextureButton" parent="."]
@@ -75,4 +75,40 @@ texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
 path = "uid://dk2i7n3nocw57"
 opt_title = "Portfolio.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton6" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 56.0
+offset_right = 512.0
+offset_bottom = 120.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://dgkt4gvya450r"
+opt_title = "S2.03.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton7" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 256.0
+offset_right = 264.0
+offset_bottom = 296.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://c0f73goj0ka04"
+opt_title = "presentation.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton8" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 56.0
+offset_right = 592.0
+offset_bottom = 120.0
+texture_normal = ExtResource("1_51gbg")
+script = ExtResource("3_fxvci")
+path = "uid://cmjtqx0j1are6"
+opt_title = "S2.04.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"

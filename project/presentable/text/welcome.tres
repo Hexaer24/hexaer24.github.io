@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dudgj")
 text = "[center][font_size=24]Bienvenue dans mon [color=green]portfolio[/color]![/font_size][/center]
-Fermez et maximisez les fenêtres en cliquant en haut à droite, rendez-les plus grandes ou plus petites en glissant la souris en bas à doite de la fenêtre.
+Fermez et maximisez les fenêtres en cliquant en haut à droite, rendez-les plus grandes ou plus petites en glissant la souris en bas à doite de la fenêtre et bougez les en glissant leur barre titre.
 Vous pouvez également glisser la barre latérale pour voir la suite du texte, et une fois que vous voulez quitter l'ordinateur déplacez vous avec votre clavier.
 
 Bonne visite!
