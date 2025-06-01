@@ -24,21 +24,22 @@ func _on_body_entered(body) -> void:
 		body.is_in_zone=true
 		body.in_zone(self)
 		label.visible=true
-		Broadcast.emit_signal("player_cutscene_entered")
 
 func _on_body_exited(body) -> void:
 	if (body is CharacterBody3D):
 		body.is_in_zone=false
 		label.visible=false
-		Broadcast.emit_signal("player_cutscene_exited")
 		if body.is_in_cutscene:
 			cam_move(body)
 
 func cam_move(player:CharacterBody3D):
 	if !player.is_in_cutscene:
+		Broadcast.emit_signal("player_cutscene_entered")
 		not_camera.move_camera_to(mid_point_bezier,marker,look_object)
 		player.visible=false
+		label.visible=false
 	else:
+		Broadcast.emit_signal("player_cutscene_exited")
 		not_camera.move_camera_to(mid_point_bezier,not_camera)
 		player.visible=true
 	player.is_in_cutscene=!player.is_in_cutscene

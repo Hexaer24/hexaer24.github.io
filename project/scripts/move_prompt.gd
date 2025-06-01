@@ -6,8 +6,9 @@ func _ready() -> void:
 	add_theme_constant_override("outline_size",4)
 	self_modulate.a=0
 	player=get_node("/root/world/player")
-	Broadcast.connect("player_idle",appear);Broadcast.connect("player_moving",disappear)
-	Broadcast.player_cutscene_entered.connect(func():player_is_in_cutscene=true)
+	Broadcast.connect("player_idle",appear);
+	Broadcast.connect("player_moving",disappear)
+	Broadcast.connect("player_cutscene_entered",func():player_is_in_cutscene=true;disappear())
 	Broadcast.connect("player_cutscene_exited",func():player_is_in_cutscene=false)
 
 func appear():
