@@ -45,14 +45,14 @@ func cam_move(player:CharacterBody3D):
 	player.is_in_cutscene=!player.is_in_cutscene
 
 func add_label(text:String):
-	var label=Label.new()
-	label.text=text
-	label.add_theme_color_override("font_outline_color",Color.BLACK)
-	label.add_theme_constant_override("outline_size",4)
-	label.set_anchors_preset(Control.PRESET_CENTER)
-	add_child(label)
-	label.visible=false
-	return label
+	var label_add=Label.new()
+	label_add.text=text
+	label_add.add_theme_color_override("font_outline_color",Color.BLACK)
+	label_add.add_theme_constant_override("outline_size",4)
+	label_add.set_anchors_preset(Control.PRESET_CENTER)
+	add_child(label_add)
+	label_add.visible=false
+	return label_add
 
 func add_hitbox():
 	var hitbox= CollisionShape3D.new()

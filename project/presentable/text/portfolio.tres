@@ -8,10 +8,12 @@ text = "[center]Portfolio[/center]
 
 Le plus grand projet que j'ai fait jusqu'à maintenant, celui que vous êtes en train de naviguer en ce moment même!
 
-Il est crée avec le langage gdscript, qui est unique au logiciel godot. Pour l'amener sur github, j'ai utilisé un robot mis à disposition pour construire l'application sur le serveur distant et  y accéder depuis un site web. La construction en format web transforme tout ce que j'ai écrit en html, css et javascript automatiquement.
+Il est créé avec le langage gdscript, qui est unique au logiciel godot. Pour l'amener sur github, j'ai utilisé un robot mis à disposition pour construire l'application sur le serveur distant et  y accéder depuis un site web. La construction en format web transforme tout ce que j'ai écrit en html, css et javascript automatiquement.
 
-Les épreuves les plus compliquées étaient le mouvement de la camera pour les mathématiques et l'écran d'ordinateur pour les implémentations techniques d'une scène 2D dans une scène 3D.
+Les épreuves les plus compliquées étaient le mouvement de la camera pour les mathématiques qu'étaient les courbes de bézier et l'écran d'ordinateur pour les implémentations techniques d'une scène 2D dans une scène 3D.
 
 Dedans, j'ai appris à créer des User Interface comme l'ordinateur sur lequel vous êtes en train de naviguer, tout en respectant les normes des symboles et des positions pour les boutons. C'est aussi d'où vient la totalité de mon expérience dans la modélisation 3D, sur le  logiciel blender.
-De plus même si ce n'est pas de l'informatique, j'ai regardé et maitrisé certaines formules mathématiques comme les courbes de bézier pour le mouvement de la caméra et les quaternions."
+De plus même si ce n'est pas de l'informatique, j'ai regardé et maitrisé certaines formules mathématiques comme les courbes de bézier pour le mouvement de la caméra et les quaternions.
+
+Temps de travail: beaucoup"
 metadata/_custom_type_script = "uid://b6gig408cwyip"

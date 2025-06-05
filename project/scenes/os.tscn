@@ -80,9 +80,9 @@ metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 [node name="DesktopButton6" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 56.0
+offset_top = 64.0
 offset_right = 512.0
-offset_bottom = 120.0
+offset_bottom = 128.0
 texture_normal = ExtResource("1_51gbg")
 script = ExtResource("3_fxvci")
 path = "uid://dgkt4gvya450r"

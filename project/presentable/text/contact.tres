@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ve254")
 text = "[center]Me contacter [/center]
-[ul]Email: Mattis.flood@gmail.com
+[ul]Email: Mattis.flood@etu.univ-grenoble-alpes.fr
 Mon [url=https://github.com/Hexaer24][color=cyan]github[/color][/url]
 [/ul]"
 metadata/_custom_type_script = "uid://b6gig408cwyip"

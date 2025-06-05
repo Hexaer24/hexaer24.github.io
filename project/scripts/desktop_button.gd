@@ -18,7 +18,7 @@ func _ready() -> void:
 	else:
 		label.text=opt_title
 		set_icon("txt")
-	label.position.y=-10
+	label.position.y=10
 	
 func set_icon(extension):
 	var assign=func(path):
