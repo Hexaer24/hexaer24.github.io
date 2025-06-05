@@ -12,7 +12,7 @@ var file_associations := {
 func _ready() -> void:
 	for n in get_children():
 		if n is DesktopButton:
-			n.connect("gui_input",_on_texture_button_button_down.bind(n))
+			n.icon_button.connect("gui_input",_on_texture_button_button_down.bind(n))
 	var window=create_window("res://presentable/text/welcome.tres")
 	window.position=get_parent().size/3
 
