@@ -26,7 +26,7 @@ func set_state(new_state):
 func _ready() -> void:
 	var main_focus=$"../room/Cylinder/InteractZone"
 	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
-		global_position=main_focus.global_position
+		get_tree().change_scene_to_file("res://scenes/os.tscn")
 
 func in_zone(zone:InteractZone):
 	while is_in_zone:
