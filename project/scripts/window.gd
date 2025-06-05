@@ -7,11 +7,13 @@ var is_maximized = false
 var style_path; var theme_path; var app_name; var file_path
 var prev_size = Vector2.ZERO
 var prev_position
-const button_size = Vector2(20,20)
+var button_size = Vector2(20,20)
 var viewport
 static var windows:Dictionary
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		button_size=Vector2(40,40)
 	viewport=get_node("../../")
 	var tween= get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
