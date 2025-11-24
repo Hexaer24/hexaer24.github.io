@@ -118,3 +118,11 @@ script = ExtResource("3_fxvci")
 path = "uid://cmjtqx0j1are6"
 opt_title = "exploitation-bdd.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="DesktopButton9" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_fxvci")
+path = "res://presentable/text/Old/"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"

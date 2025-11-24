@@ -1,16 +1,17 @@
 class_name Notepad extends FakeWindow
 
 func _ready() -> void:
+	#TODO merge both image and theme
 	style_path="res://assets/notepadGUI.png"
 	theme_path="res://resources/notepadGUI.tres"
 	app_name="Notepad"
 	super._ready()
 
-# Doesn't work in html, should load form TextFile resource instead!
 func openFile(path):
 	var text_res=load(path) as TextResource
 	windows[self]= path
 	var content_text=RichTextLabel.new()
+	print(path)
 	content_text.append_text(text_res.text)
 	content_text.bbcode_enabled=true
 	content_text.connect("meta_clicked",handle_url)

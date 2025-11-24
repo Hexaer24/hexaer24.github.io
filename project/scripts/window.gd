@@ -1,4 +1,4 @@
-class_name FakeWindow extends PanelContainer
+@abstract class_name FakeWindow extends PanelContainer
 var dragging :=false; var drag_offset := Vector2.ZERO
 var resizing := false; var resize_direction := Vector2.ZERO
 var drag_start_pos := Vector2.ZERO; var drag_start_size := Vector2.ZERO
@@ -34,7 +34,10 @@ func loadSeparation():
 func baseContent():
 	var content= PanelContainer.new()
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content.clip_contents=true
 	return content
+
+@abstract func openFile(path)
 
 func createWindow(): #Order is still important now
 	var slice = loadSeparation()
@@ -53,10 +56,7 @@ func resize():
 	resize_handle.connect("gui_input", _on_resize_handle_input)
 	return resize_handle
 
-func loadContent():         #Would be abstract
-	var content= ColorRect.new()
-	content.color=Color(1,1,1)
-	return content
+@abstract func loadContent()
 
 func loadTitle():
 	var titleBar=PanelContainer.new()

@@ -1,8 +1,8 @@
-extends Control
+class_name Desktop extends Control
 
 var file_associations := {
 	"txt": Notepad,
-	"": Notepad,
+	"": Folder,
 	"mp3": MusicPlayer,
 	"flac": MusicPlayer,
 	"tres":Notepad,
@@ -10,9 +10,6 @@ var file_associations := {
 }
 
 func _ready() -> void:
-	for n in get_children():
-		if n is DesktopButton:
-			n.icon_button.connect("gui_input",_on_texture_button_button_down.bind(n))
 	var window=create_window("res://presentable/text/welcome.tres")
 	window.position=get_parent().size/3
 
@@ -37,8 +34,10 @@ func _on_window_clicked(event: InputEvent, window:FakeWindow):
 	if event is InputEventMouseButton and event.pressed:
 		window.move_to_front()
 	
-func get_assigned_app(path):
-	var extension = path.get_extension()
+func get_assigned_app(path:String):
+	var extension:String = path.get_extension()
+	if path.begins_with("uid"):
+		extension="txt"
 	if extension in file_associations:
 		var app_name = file_associations[extension]
 		return app_name

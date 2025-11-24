@@ -8,3 +8,4 @@ signal player_moving
 signal player_cutscene_entered
 #Uses: move_prompt
 signal player_cutscene_exited
+@onready var desktop:Desktop=$"../world/Node3D/SubViewport/os"
