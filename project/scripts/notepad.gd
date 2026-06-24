@@ -11,7 +11,6 @@ func openFile(path):
 	var text_res=load(path) as TextResource
 	windows[self]= path
 	var content_text=RichTextLabel.new()
-	print(path)
 	content_text.append_text(text_res.text)
 	content_text.bbcode_enabled=true
 	content_text.connect("meta_clicked",handle_url)

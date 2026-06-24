@@ -5,6 +5,7 @@ var file_associations := {
 	"": Folder,
 	"mp3": MusicPlayer,
 	"flac": MusicPlayer,
+	"wav":MusicPlayer,
 	"tres":Notepad,
 	"png": "ImageViewer"
 }

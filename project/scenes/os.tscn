@@ -29,7 +29,7 @@ offset_bottom = 118.0
 focus_mode = 2
 mouse_filter = 0
 script = ExtResource("3_fxvci")
-path = "res://presentable/music/seamless-worlds.flac"
+path = "res://presentable/music/briar.wav"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
 [node name="DesktopButton3" type="VBoxContainer" parent="." unique_id=507499984]
@@ -93,10 +93,10 @@ metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
 [node name="DesktopButton6" type="VBoxContainer" parent="." unique_id=965036631]
 layout_mode = 0
-offset_left = 771.0
-offset_top = 338.0
-offset_right = 835.0
-offset_bottom = 402.0
+offset_left = 94.0
+offset_top = 350.0
+offset_right = 158.0
+offset_bottom = 414.0
 focus_mode = 2
 mouse_filter = 0
 script = ExtResource("3_fxvci")
