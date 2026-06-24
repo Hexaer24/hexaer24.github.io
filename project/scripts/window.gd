@@ -105,10 +105,13 @@ func loadButtons(title):
 	
 func _on_titlebar_gui_input(event):
 	if event is InputEventMouseButton:
+		if event.double_click:
+			_on_maximize_pressed()
 		dragging = event.pressed
 		drag_offset = event.position if dragging else drag_offset
 	elif event is InputEventMouseMotion and dragging:
 		global_position += event.position - drag_offset
+	
 		
 func _on_resize_handle_input(event):
 	if event is InputEventMouseButton:
