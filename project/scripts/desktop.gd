@@ -29,7 +29,7 @@ func create_window(path):
 func _on_texture_button_button_down(event: InputEvent, button: DesktopButton) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		var window =create_window(button.path)
-		window.position=button.position
+		window.position=Vector2.ZERO
 
 func _on_window_clicked(event: InputEvent, window:FakeWindow):
 	if event is InputEventMouseButton and event.pressed:
