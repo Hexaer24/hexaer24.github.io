@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TextResource" format=3 uid="uid://bdkdgqhm8llmv"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_ec26a"]
+
+[resource]
+script = ExtResource("1_ec26a")
+text = "[center][font_size=24]Stage au Synchrotron[/font_size][/center]
+Dans ce stage j'ai dû mettre à jour le calendrier de l'ESRF.
+Il a fallu:
+[ul]
+Changer la version de EGroupware 16.1 à EGroupware 26.6
+Ajuster le script permettant de chercher les absences sur un serveur distant
+Configurer une machine virtuelle pour pouvoir mettre le site web dessus
+[/ul]
+
+Dans ce projet j'ai appris:
+[ul]
+La gestion des logiciels d'entreprises
+Les librairies diff (pour l'agorithme de différence de fichiers) et la librairie paramiko pour transférer des fichier grâce au protocole sftp de python
+L'utilisation des firewall dans la sécurité des entreprises
+[/ul]
+
+J'ai approfondi:
+[ul]
+Mes connaissances en python
+Mes connaissances du ssh, nouvelle notion de tunnels
+[/ul]
+
+C'était un travail en solo qui à duré 8 semaines avec 7h par jour"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="TextResource" format=3 uid="uid://dkjikqt05x7kr"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_frxq0"]
+
+[resource]
+script = ExtResource("1_frxq0")
+text = "[center][font_size=24]Logiciel pour les aidants[/font_size][/center]
+
+Aidly est une application qui permet d'assister les adiants de personnes âgées en offrant divers services
+[ul]
+Une TODO list
+Une messagerie
+Un système de permissions
+Des foyers (si une femme de ménage s'occupe de plusieurs personnes par example)
+Une carte
+Un tableau de bord
+[/ul]
+
+Je me suis charger de développer la carte. Bien qu'elle ne semblerait pas nécessaire, il faut se rappeller que la plupart des lieux où l'on veut aller son souvent limités par des marches ou d'autres problèmes d'accessibilité.
+C'est pour cela que cette carte indique les places que vous pouvez visiter avec un fauteuil roulant grâce à [url=https://wheelmap.org/][color=cyan]wheelmap[/color][/url].
+
+De plus, j'ai assisté dans le groupe dans les endroits où il été nécessaire d'utiliser des requêtes javascript avec fetch
+
+Fonctionalités de la carte:
+[ul]
+Chercher un lieu
+Enregistrer un lieu pour pouvoir l'accéder plus facilement dans le futur (enregistre dans une base de donnée)
+Visualiser le niveau d'accessibilité d'un lieu
+[/ul]
+
+Ce travail était une collaboration entre 7 personnes pour une duration de 4 semaines
+
+Voici le lien [url=https://aidly.nfteam.ovh/][color=cyan]https://aidly.nfteam.ovh/[/color][/url].
+"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

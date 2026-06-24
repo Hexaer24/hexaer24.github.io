@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://c0f73goj0ka04"]
+[gd_resource type="Resource" script_class="TextResource" format=3 uid="uid://c0f73goj0ka04"]
 
 [ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_7fw5b"]
 
@@ -26,7 +26,10 @@ SQL ++
 Assembleur ++
 CSS +++
 HTML +++
-JavaScript +
+JavaScript +++
+C++   ++
+C  +
+C# ++++
 [/ul]
 
 Langages
@@ -42,7 +45,6 @@ B2 espagnol
 Brevet
 BAC STI2D
 [/ul]
-BUT informatique sera inclus dans le futur
 
 
 [b]Passions[/b]

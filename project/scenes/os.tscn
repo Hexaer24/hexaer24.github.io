@@ -1,15 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr0yfn4t04wnl"]
+[gd_scene format=3 uid="uid://cr0yfn4t04wnl"]
 
 [ext_resource type="Script" uid="uid://bvk83ogsgbwng" path="res://scripts/desktop.gd" id="1_uwnhl"]
 [ext_resource type="Script" uid="uid://dgamdfpy1urxx" path="res://scripts/desktop_button.gd" id="3_fxvci"]
 [ext_resource type="Texture2D" uid="uid://co81f028qmkki" path="res://assets/Desktop-background.png" id="5_72ne2"]
 
-[node name="os" type="Control"]
+[node name="os" type="Control" unique_id=605976950]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uwnhl")
 
-[node name="DesktopButton2" type="VBoxContainer" parent="."]
+[node name="Synchrotron" type="VBoxContainer" parent="." unique_id=1550258916]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+script = ExtResource("3_fxvci")
+path = "uid://bdkdgqhm8llmv"
+opt_title = "Stage_Synchrotron.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="SeamlessWorlds" type="VBoxContainer" parent="." unique_id=451822316]
 layout_mode = 0
 offset_left = 217.0
 offset_top = 54.0
@@ -21,7 +32,7 @@ script = ExtResource("3_fxvci")
 path = "res://presentable/music/seamless-worlds.flac"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton3" type="VBoxContainer" parent="."]
+[node name="DesktopButton3" type="VBoxContainer" parent="." unique_id=507499984]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 57.0
@@ -34,7 +45,7 @@ path = "uid://cviikt66xm25t"
 opt_title = "IA_side_job.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton" type="VBoxContainer" parent="."]
+[node name="Contact" type="VBoxContainer" parent="." unique_id=1494020433]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 148.0
@@ -47,7 +58,7 @@ path = "uid://d07vgpmt7xws4"
 opt_title = "contact.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton4" type="VBoxContainer" parent="."]
+[node name="DesktopButton4" type="VBoxContainer" parent="." unique_id=820463692]
 layout_mode = 0
 offset_left = 221.0
 offset_top = 154.0
@@ -60,14 +71,14 @@ path = "uid://b3h07v5akjhgw"
 opt_title = "welcome.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="Desktop-background" type="Sprite2D" parent="."]
+[node name="Desktop-background" type="Sprite2D" parent="." unique_id=1307219350]
 z_index = -1
 texture_filter = 1
 position = Vector2(512, 256)
 scale = Vector2(8, 8)
 texture = ExtResource("5_72ne2")
 
-[node name="DesktopButton5" type="VBoxContainer" parent="."]
+[node name="DesktopButton5" type="VBoxContainer" parent="." unique_id=953759494]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 248.0
@@ -80,12 +91,12 @@ path = "uid://dk2i7n3nocw57"
 opt_title = "Portfolio.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton6" type="VBoxContainer" parent="."]
+[node name="DesktopButton6" type="VBoxContainer" parent="." unique_id=965036631]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 64.0
-offset_right = 512.0
-offset_bottom = 128.0
+offset_left = 771.0
+offset_top = 338.0
+offset_right = 835.0
+offset_bottom = 402.0
 focus_mode = 2
 mouse_filter = 0
 script = ExtResource("3_fxvci")
@@ -93,7 +104,7 @@ path = "uid://dgkt4gvya450r"
 opt_title = "installation-serveur.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton7" type="VBoxContainer" parent="."]
+[node name="DesktopButton7" type="VBoxContainer" parent="." unique_id=654451837]
 layout_mode = 0
 offset_left = 224.0
 offset_top = 256.0
@@ -106,7 +117,7 @@ path = "uid://c0f73goj0ka04"
 opt_title = "presentation.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton8" type="VBoxContainer" parent="."]
+[node name="DesktopButton8" type="VBoxContainer" parent="." unique_id=1519183887]
 layout_mode = 0
 offset_left = 512.0
 offset_top = 160.0
@@ -119,10 +130,21 @@ path = "uid://cmjtqx0j1are6"
 opt_title = "exploitation-bdd.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
 
-[node name="DesktopButton9" type="VBoxContainer" parent="."]
+[node name="Folder" type="VBoxContainer" parent="." unique_id=1941452224]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_fxvci")
 path = "res://presentable/text/Old/"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="Aidly" type="VBoxContainer" parent="." unique_id=807586765]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 403.0
+offset_right = 390.0
+offset_bottom = 443.0
+script = ExtResource("3_fxvci")
+path = "uid://dkjikqt05x7kr"
+opt_title = "Aidly.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
