@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TextResource" format=3 uid="uid://dnk6k1w8twhtg"]
+
+[ext_resource type="Script" uid="uid://b6gig408cwyip" path="res://scripts/TextResource.gd" id="1_amnvu"]
+
+[resource]
+script = ExtResource("1_amnvu")
+text = "[center][font_size=24]Overgrown Kingdom[/font_size][/center]
+
+Overgrown kingdom s'agit d'un projet que nous avons fait entre amis pour une game jam bi1tjam 2025. Il s'agit d'un platformer 2D fait en 1 semaine.
+
+C'était une collaboration à 4 (+1 qui à fait un sprite très très sympa)
+
+Dedans j'ai fait:
+[ul]
+L'IA de plusieurs monstres comme l'oeil volant et le boss final papillon
+Le système de compétences et de mouvement du personnage principal
+Des sprite comme l'oeil volant, les lasers du papillon
+[/ul]
+
+Attention, le jeu n'est pas facile (et peu équilibré dû à la nouveauté du sujet) [url=https://atio3f.itch.io/b1tjam2025][color=cyan]https://atio3f.itch.io/b1tjam2025[/color][/url]"
+metadata/_custom_type_script = "uid://b6gig408cwyip"

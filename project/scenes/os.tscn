@@ -148,3 +148,15 @@ script = ExtResource("3_fxvci")
 path = "uid://dkjikqt05x7kr"
 opt_title = "Aidly.txt"
 metadata/_custom_type_script = "uid://dgamdfpy1urxx"
+
+[node name="Overgrown" type="VBoxContainer" parent="." unique_id=507074891]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 276.0
+offset_right = 591.0
+offset_bottom = 316.0
+pivot_offset = Vector2(650, 362)
+script = ExtResource("3_fxvci")
+path = "uid://dnk6k1w8twhtg"
+opt_title = "OvergrownKingdom.txt"
+metadata/_custom_type_script = "uid://dgamdfpy1urxx"
