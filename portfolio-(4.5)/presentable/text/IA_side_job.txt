@@ -1,0 +1,9 @@
+[center]Projet de machine learning pour l’entreprise P2Invest familiale [/center]
+
+Pour aider dans la classification, on m’a confié la tache créer un système qui permet de rechercher des informations dans un document PDF grâce & un modèle d’IA.
+Grâce à cela, j’ai appris l’existance des dépendances unsloth et tensorflow pour python qui permettent de faire toutes sortes de modifications à des IAs déjà existantes.
+De plus il restait assez de temps pour commencer un autre projet qui s’agissait de spécialiser une IA dans un domaine précis (finetuning).
+J’ai réussi à finir l’édition du modèle pour la classification mais malheureusement les résultats n’étaient pas toujours ceux attendus et la plupart étaient inconsistent.
+Nous avions remarqué aussi la différence marginale que donnait le nombre de paramètres des modèles d’IA, soit la précision de l’information qu’elle donne.
+
+Au final rien de ce que j’ai fait n’était particulièrement utile à l’entreprise, dû au manque de précision des IAs moins demandeuses. Il aurait fallu du meilleur matériel.

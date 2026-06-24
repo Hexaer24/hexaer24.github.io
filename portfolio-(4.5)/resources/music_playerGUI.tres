@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c16331vjgfe31"]
+
+[ext_resource type="Texture2D" uid="uid://cv8bwornhpl32" path="res://assets/music_playerGUI.png" id="1_0qkpc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5g4cy"]
+texture = ExtResource("1_0qkpc")
+region_rect = Rect2(350, 0, 290, 90)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_5g4cy")

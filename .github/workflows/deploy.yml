@@ -1,7 +1,7 @@
 name: "Publish to GitHub Pages"
 
 env:
-  GODOT_VERSION: 4.5
+  GODOT_VERSION: 4.7
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
       contents: write
 
     container:
-      image: barichello/godot-ci:4.5
+      image: barichello/godot-ci:4.7
 
     steps:
       - name: Checkout
